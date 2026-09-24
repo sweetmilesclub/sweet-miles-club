@@ -1,4 +1,4 @@
-# PRIVREMENO — blokira tražilice do objave 2.10.2026.
+# PRIVREMENO — blokira tražilice do produkcijskog launcha.
 # Na dan objave ovaj Disallow se briše.
 User-agent: *
 Disallow: /

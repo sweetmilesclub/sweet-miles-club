@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>Hvala — Sweet Miles Club</title>
-<meta name="description" content="Tvoj Osobni reset je na putu.">
+<title>Stranica nije pronađena — Sweet Miles Club</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -20,67 +19,129 @@
 <link rel="manifest" href="site.webmanifest">
 
 <style>
-  /* ================================================================
-     HVALA — thank-you stranica nakon prijave na Osobni reset.
-     Po odobrenom briefu: bez dodatnog CTA-a, bez ponovne prodaje,
-     bez novog sadrzaja.
-     ================================================================ */
-  .hvala{
-    /* visina tako da footer sjedne na dno ekrana, bez praznine ispod */
-    min-height:calc(100vh - 252px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:120px 40px 140px;
+  .pravno{max-width:760px;margin:0 auto;padding:64px 40px 110px;}
+  .pravno .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:18px;
   }
-  .hvala-inner{
-    max-width:580px;
-    text-align:center;
-  }
-  .hvala .znak{
-    width:62px;
-    height:62px;
-    margin:0 auto 34px;
-    border:1px solid var(--clay-soft);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .hvala .znak svg{
-    width:26px;
-    height:26px;
-    stroke:var(--clay);
-    fill:none;
-    stroke-width:1.2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-  }
-  .hvala h1{
+  .pravno h1{
     font-family:'Playfair Display',serif;
     font-weight:500;
     font-size:44px;
     line-height:1.2;
     color:var(--asphalt);
-    margin:0 0 26px;
+    margin:0 0 14px;
   }
-  .hvala .inbox{
-    font-size:17px;
-    line-height:1.8;
+  .pravno .azurirano{
+    font-size:13px;
+    letter-spacing:.5px;
+    color:#8a847a;
+    margin:0 0 46px;
+  }
+  .pravno h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:25px;
+    color:var(--asphalt);
+    margin:44px 0 16px;
+  }
+  .pravno p{
+    font-size:16.5px;
+    line-height:1.85;
     color:#4a453f;
     margin:0 0 18px;
   }
-  .hvala .napomena{
-    font-size:14.5px;
-    line-height:1.7;
-    color:#8a847a;
-    margin:0;
+  .pravno ul{
+    margin:0 0 18px;
+    padding:0;
+    list-style:none;
   }
+  .pravno ul li{
+    font-size:16.5px;
+    line-height:1.8;
+    color:#4a453f;
+    position:relative;
+    padding:0 0 12px 22px;
+  }
+  .pravno ul li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:14px;
+    width:7px;
+    height:1px;
+    background:var(--clay);
+  }
+  .pravno a{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
+  .pravno a:hover{border-bottom-color:var(--clay);}
+  .pravno .kontakt-blok{
+    border-left:2px solid var(--eucalyptus);
+    padding:4px 0 4px 24px;
+    margin:30px 0;
+  }
+  .pravno .kontakt-blok p{margin:0 0 6px;}
 
+
+  .nf{
+    min-height:calc(100vh - 252px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:110px 40px 130px;
+    text-align:center;
+  }
+  .nf-inner{max-width:560px;}
+  .nf .broj{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:74px;
+    line-height:1;
+    color:var(--clay-soft);
+    margin:0 0 18px;
+  }
+  .nf h1{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:38px;
+    line-height:1.25;
+    color:var(--asphalt);
+    margin:0 0 20px;
+  }
+  .nf p{
+    font-size:16.5px;
+    line-height:1.8;
+    color:#4a453f;
+    margin:0 0 34px;
+  }
+  .nf-linkovi{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 30px;
+  }
+  .nf-linkovi a{
+    font-size:13.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--clay);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease;
+  }
+  .nf-linkovi a:hover{border-bottom-color:var(--clay);}
   @media (max-width:640px){
-    .hvala{padding:84px 24px 100px;min-height:auto;}
-    .hvala h1{font-size:33px;}
-    .hvala .inbox{font-size:16px;}
+    .nf{padding:76px 24px 90px;min-height:auto;}
+    .nf .broj{font-size:58px;}
+    .nf h1{font-size:29px;}
+  }
+  @media (max-width:640px){
+    .pravno{padding:48px 24px 80px;}
+    .pravno h1{font-size:33px;}
+    .pravno h2{font-size:22px;}
+    .pravno p, .pravno ul li{font-size:16px;}
   }
   @media (max-width:600px){
     header nav{display:none;}
@@ -133,19 +194,20 @@
 </div>
 
 <main>
-  <section class="hvala">
-    <div class="hvala-inner">
-
-      <div class="znak">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.6 6.6 8.4 6.2 8.4-6.2"/></svg>
+  <div class="nf">
+    <div class="nf-inner">
+      <p class="broj">404</p>
+      <h1>Ups, ova stranica je otrčala malo predaleko.</h1>
+      <p>Adresa koju si otvorila ne postoji ili se u međuvremenu promijenila. Nema veze — evo gdje možeš nastaviti.</p>
+      <div class="nf-linkovi">
+        <a href="index.html">Naslovnica</a>
+        <a href="blog.html">Blog</a>
+        <a href="recepti.html">Recepti</a>
+        <a href="o-meni.html">O meni</a>
+        <a href="kontakt.html">Kontakt</a>
       </div>
-
-      <h1>Tvoj Osobni reset je na putu.</h1>
-      <p class="inbox">Provjeri svoj inbox — tamo te čeka „Mojih 15 minuta — Osobni reset".</p>
-      <p class="napomena">Ako ga ne vidiš kroz nekoliko minuta, provjeri Promotions ili Spam.</p>
-
     </div>
-  </section>
+  </div>
 </main>
 
 <footer>

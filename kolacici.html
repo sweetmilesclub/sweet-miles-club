@@ -3,131 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Čokoladni mousse u čaši — Sweet Miles Club</title>
-<meta name="description" content="Čokoladni mousse u čaši — desert bez pečenja, gotov za petnaestak minuta.">
+<title>Kolačići — Sweet Miles Club</title>
+<meta name="description" content="Koje kolačiće Sweet Miles Club koristi, čemu služe i kako ih možeš isključiti.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
-<link rel="canonical" href="https://sweetmilesclub.com/recept-cokoladni-mousse">
+<link rel="canonical" href="https://sweetmilesclub.com/kolacici">
 <meta name="theme-color" content="#FAF6F0">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Sweet Miles Club">
 <meta property="og:locale" content="hr_HR">
-<meta property="og:title" content="Čokoladni mousse u čaši — Sweet Miles Club">
-<meta property="og:description" content="Čokoladni mousse u čaši — desert bez pečenja, gotov za petnaestak minuta.">
-<meta property="og:url" content="https://sweetmilesclub.com/recept-cokoladni-mousse">
+<meta property="og:title" content="Kolačići — Sweet Miles Club">
+<meta property="og:description" content="Koje kolačiće Sweet Miles Club koristi, čemu služe i kako ih možeš isključiti.">
+<meta property="og:url" content="https://sweetmilesclub.com/kolacici">
 <meta property="og:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Zalazak sunca, žena u terakota haljini s kavom u ruci">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Čokoladni mousse u čaši — Sweet Miles Club">
-<meta name="twitter:description" content="Čokoladni mousse u čaši — desert bez pečenja, gotov za petnaestak minuta.">
+<meta name="twitter:title" content="Kolačići — Sweet Miles Club">
+<meta name="twitter:description" content="Koje kolačiće Sweet Miles Club koristi, čemu služe i kako ih možeš isključiti.">
 <meta name="twitter:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
 
 <style>
-  .recept-top{max-width:760px;margin:0 auto;padding:54px 28px 0;}
-  .back-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+  .pravno{max-width:760px;margin:0 auto;padding:64px 40px 110px;}
+  .pravno .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:18px;
+  }
+  .pravno h1{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:44px;
+    line-height:1.2;
+    color:var(--asphalt);
+    margin:0 0 14px;
+  }
+  .pravno .azurirano{
     font-size:13px;
     letter-spacing:.5px;
-    color:var(--asphalt);
-    opacity:.7;
-    margin-bottom:34px;
-    transition:opacity .2s ease, color .2s ease;
+    color:#8a847a;
+    margin:0 0 46px;
   }
-  .back-link:hover{opacity:1;color:var(--clay);}
-  .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--clay);font-weight:500;margin-bottom:18px;}
-  .recept-top h1{
+  .pravno h2{
     font-family:'Playfair Display',serif;
     font-weight:500;
-    font-size:42px;
-    line-height:1.25;
+    font-size:25px;
     color:var(--asphalt);
+    margin:44px 0 16px;
+  }
+  .pravno p{
+    font-size:16.5px;
+    line-height:1.85;
+    color:#4a453f;
     margin:0 0 18px;
   }
-  .recept-meta{
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:#8a847a;
-    margin-bottom:40px;
-  }
-
-  .recept-hero{max-width:900px;margin:0 auto;padding:0 28px;}
-  .recept-hero .thumb{
-    aspect-ratio:4/3;
-    border-radius:3px;
-    overflow:hidden;
-    background-size:cover;
-    background-position:center;
-  }
-
-  .recept-body{max-width:680px;margin:0 auto;padding:48px 28px 0;font-size:16.5px;color:#4a453f;}
-  .recept-body h2{
-    font-family:'Playfair Display',serif;
-    font-weight:500;
-    font-size:26px;
-    color:var(--asphalt);
-    margin:0 0 20px;
-  }
-
-  .sastojci{
-    list-style:none;
-    margin:0 0 46px;
+  .pravno ul{
+    margin:0 0 18px;
     padding:0;
+    list-style:none;
   }
-  .sastojci li{
-    border-bottom:1px solid rgba(63,59,54,0.1);
-    padding:11px 0 11px 20px;
+  .pravno ul li{
+    font-size:16.5px;
+    line-height:1.8;
+    color:#4a453f;
     position:relative;
+    padding:0 0 12px 22px;
   }
-  .sastojci li::before{
+  .pravno ul li::before{
     content:"";
     position:absolute;
     left:0;
-    top:50%;
-    width:6px;
+    top:14px;
+    width:7px;
     height:1px;
     background:var(--clay);
   }
-
-  .postupak p{margin:0 0 20px;}
-  .postupak{margin-bottom:12px;}
-
-  /* osobna biljeska na kraju recepta */
-  .smc-trenutak{
-    max-width:680px;
-    margin:54px auto 0;
-    padding:34px 28px 0;
-    border-top:1px solid rgba(63,59,54,0.12);
-    font-size:16px;
-    color:#4a453f;
+  .pravno a{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
+  .pravno a:hover{border-bottom-color:var(--clay);}
+  .pravno .kontakt-blok{
+    border-left:2px solid var(--eucalyptus);
+    padding:4px 0 4px 24px;
+    margin:30px 0;
   }
-  .smc-trenutak h2{
-    font-family:'Caveat',cursive;
-    font-weight:600;
-    font-size:30px;
-    color:var(--clay);
-    margin:0 0 16px;
-  }
-  .smc-trenutak p{margin:0 0 18px;}
+  .pravno .kontakt-blok p{margin:0 0 6px;}
 
-  .recept-bottom{max-width:680px;margin:44px auto 100px;padding:0 28px;}
-
-  @media (max-width:680px){
-    .recept-top h1{font-size:32px;}
-    .recept-body{font-size:16px;}
+  @media (max-width:640px){
+    .pravno{padding:48px 24px 80px;}
+    .pravno h1{font-size:33px;}
+    .pravno h2{font-size:22px;}
+    .pravno p, .pravno ul li{font-size:16px;}
   }
   @media (max-width:600px){
     header nav{display:none;}
@@ -148,7 +125,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="recepti.html" aria-current="page">Recepti</a></li>
+        <li><a href="recepti.html">Recepti</a></li>
         <li><a href="o-meni.html">O meni</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
@@ -173,55 +150,55 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="recepti.html" aria-current="page">Recepti</a></li>
+    <li><a href="recepti.html">Recepti</a></li>
     <li><a href="o-meni.html">O meni</a></li>
     <li><a href="kontakt.html">Kontakt</a></li>
   </ul>
 </div>
 
 <main>
-  <div class="recept-top">
-    <a href="recepti.html" class="back-link">← Natrag na recepte</a>
-    <div class="eyebrow">Desert · Bez pečenja</div>
-    <h1>Čokoladni mousse u čaši</h1>
-    <div class="recept-meta">Priprema oko 15 min + 2 h hlađenja · 4 čaše</div>
-  </div>
+  <div class="pravno">
 
-  <div class="recept-hero">
-    <div class="thumb" style="background-image:url('images/smc-recept-cokoladni-mousse.jpg');"></div>
-  </div>
+    <div class="eyebrow">Pravno</div>
+    <h1>Kolačići</h1>
+    <p class="azurirano">Zadnja izmjena: 22. rujna 2026.</p>
 
-  <div class="recept-body">
+    <p>Kolačići su male datoteke koje web-stranica sprema u tvoj preglednik. Neki su nužni da bi stranica uopće radila, a drugi služe mjerenju ili oglašavanju.</p>
 
-    <h2>Sastojci</h2>
-    <ul class="sastojci">
-      <li>500 ml vrhnja za šlag</li>
-      <li>200 g čokolade za kuhanje</li>
-      <li>150 g mljevenog keksa</li>
-      <li>50 g sjeckanih lješnjaka</li>
-      <li>1 vanilin šećer</li>
-      <li>2 žlice Nutelle, po želji</li>
-    </ul>
+    <p>Ovo web-sjedište koristi vrlo malo kolačića i <strong>ne koristi nijedan za oglašavanje ni za praćenje tvog ponašanja po drugim stranicama.</strong> Evo točno što postoji.</p>
 
-    <h2>Priprema</h2>
-    <div class="postupak">
-      <p>Otopi čokoladu i ostavi nekoliko minuta da se ohladi. Izmiksaj vrhnje u mekani šlag pa umiješaj čokoladu, vanilin šećer i po želji Nutellu.</p>
-      <p>U čaše slaži redom keks, čokoladnu kremu i lješnjake, pa ponovi slojeve. Završi mrvicama keksa i lješnjacima.</p>
-      <p>Ohladi najmanje 2 sata, a još je bolji nakon noći u hladnjaku.</p>
-    </div>
+    <h2>Kolačići koje postavlja sama stranica</h2>
 
-  </div>
+    <p>Nijedan. Sweet Miles Club nema korisničke račune, košaricu ni sustav komentara, pa nema ni vlastite kolačiće.</p>
 
-  <div class="smc-trenutak">
-    <h2>Mali Sweet Miles trenutak</h2>
-    <p>Ponekad desert ne mora biti nagrada. Ponekad je samo desert.</p>
-    <p>Napravila sam ove jednostavne čokoladne čaše za vikend. Bez brojanja kalorija i bez osjećaja da ih moram nekako „zaraditi”.</p>
-    <p>Jer balans nije u tome da nikad ne pojedeš kolač. Balans je kada uživaš u njemu, a zatim nastaviš sa svojim danom — šetnjom, trčanjem ili odmorom, bez grižnje savjesti.</p>
-    <p>To je upravo ono što Sweet Miles Club predstavlja.</p>
-  </div>
+    <h2>Nužni kolačići pružatelja usluge</h2>
 
-  <div class="recept-bottom">
-    <a href="recepti.html" class="back-link">← Natrag na sve recepte</a>
+    <p><strong>Cloudflare</strong>, na kojem je stranica smještena, može postaviti kolačić potreban za sigurnost i zaštitu od zlonamjernog prometa. Takav kolačić ne prati te i ne koristi se za marketing, a bez njega stranica ne bi mogla raditi sigurno.</p>
+
+    <h2>Obrazac za preuzimanje workbooka</h2>
+
+    <p>Na stranici <a href="osobni-reset.html">Osobni reset</a> nalazi se obrazac kojim se prijavljuješ za besplatni workbook. Taj obrazac dolazi od servisa <strong>MailerLite</strong> i njegova skripta može postaviti kolačiće vezane uz rad obrasca i prepoznavanje prijave.</p>
+
+    <p>Ta skripta učitava se <strong>samo na toj jednoj stranici</strong>. Na svim ostalim stranicama — naslovnici, blogu, receptima, O meni i Kontaktu — nje nema.</p>
+
+    <p>Više o tome kako MailerLite postupa s podacima piše u njihovoj <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">politici privatnosti</a>.</p>
+
+    <h2>Tipografija</h2>
+
+    <p>Stranica učitava fontove s <strong>Google Fonts</strong> servisa. Time se ne postavljaju kolačići, ali se Googleovim poslužiteljima prenosi tvoja IP adresa jer je to nužno da bi ti font uopće stigao u preglednik.</p>
+
+    <h2>Analitika i oglašavanje</h2>
+
+    <p>Trenutno <strong>nema</strong> alata za mjerenje posjećenosti, nema Google Analyticsa, nema Meta Pixela i nema oglasnih kolačića.</p>
+
+    <p>Ako to jednom uvedem, prije toga ću postaviti traku za privole na kojoj ćeš moći jednako jednostavno prihvatiti ili odbiti takve kolačiće, i predomisliti se kasnije. Dok se to ne dogodi, ova će stranica biti dopunjena, a <a href="privatnost.html">politika privatnosti</a> usklađena.</p>
+
+    <h2>Kako isključiti kolačiće</h2>
+
+    <p>Kolačiće u svakom trenutku možeš blokirati ili obrisati u postavkama svog preglednika, obično pod stavkom „Privatnost i sigurnost". Imaj na umu da blokiranje svih kolačića može utjecati na rad obrasca za workbook.</p>
+
+    <p>Ako te nešto zanima, piši mi na <a href="mailto:hello@sweetmilesclub.com">hello@sweetmilesclub.com</a>.</p>
+
   </div>
 </main>
 
