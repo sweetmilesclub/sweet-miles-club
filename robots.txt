@@ -1,4 +1,5 @@
-# PRIVREMENO — blokira tražilice do produkcijskog launcha.
-# Na dan objave ovaj Disallow se briše.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://sweetmilesclub.com/sitemap.xml
+
