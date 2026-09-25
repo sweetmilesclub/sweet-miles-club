@@ -1,15 +1,747 @@
-<!DOCTYPE html>
-<html lang="hr">
+<!doctype html>
+<html lang="hr" style="scroll-behavior:smooth;">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sweet Miles Club</title>
+<meta name="description" content="Svaki dan zaslužuje barem jedan trenutak koji pripada samo tebi. Trčanje, balans i vrijeme za sebe unutar stvarnog života.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- SEO / Open Graph / favicon -->
+<link rel="canonical" href="https://sweetmilesclub.com/">
+<meta name="theme-color" content="#FAF6F0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sweet Miles Club">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:title" content="Sweet Miles Club">
+<meta property="og:description" content="Svaki dan zaslužuje barem jedan trenutak koji pripada samo tebi. Trčanje, balans i vrijeme za sebe unutar stvarnog života.">
+<meta property="og:url" content="https://sweetmilesclub.com/">
+<meta property="og:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zalazak sunca, žena u terakota haljini s kavom u ruci">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sweet Miles Club">
+<meta name="twitter:description" content="Svaki dan zaslužuje barem jedan trenutak koji pripada samo tebi. Trčanje, balans i vrijeme za sebe unutar stvarnog života.">
+<meta name="twitter:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
+
+<style>
+  /* ================================================================
+     NASLOVNICA — lokalni stilovi.
+     Zajednički header, navigacija, footer i paleta dolaze iz css/style.css.
+     Ovdje se samo nadjačava ponašanje headera nad Hero fotografijom.
+     ================================================================ */
+
+  /* ---------- HEADER preko Hero fotografije (samo naslovnica) ---------- */
+  body.home header{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    background:transparent;
+    backdrop-filter:none;
+    border-bottom:none;
+  }
+  body.home header::before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto 0;
+    height:150px;
+    background:linear-gradient(180deg, rgba(43,38,33,0.46) 0%, rgba(43,38,33,0.18) 55%, rgba(43,38,33,0) 100%);
+    pointer-events:none;
+  }
+  body.home header .header-inner{position:relative;}
+  body.home header .logo .smc,
+  body.home header .logo .full,
+  body.home header nav a{text-shadow:0 1px 5px rgba(43,38,33,0.7);}
+  body.home header .logo .smc{color:var(--ivory);}
+  body.home header .logo .full{color:var(--blush);}
+  body.home header nav a{color:var(--ivory);}
+  body.home header nav a:hover,
+  body.home header nav a[aria-current="page"]{color:var(--ivory);border-bottom-color:var(--ivory);}
+  body.home header .nav-toggle svg{stroke:#FAF6F0;}
+  /* kad je mobilni izbornik otvoren, podloga je ivory pa ikona mora biti tamna */
+  body.home.mobile-nav-open header .nav-toggle svg{stroke:#3F3B36;}
+
+  /* ---------- 01 HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:84vh;
+    display:flex;
+    align-items:center;
+    background:var(--linen);
+    background-image:url('images/smc-hero-zalazak-kava.jpg');
+    background-size:cover;
+    background-position:60% 80%;
+    overflow:hidden;
+  }
+  /* suptilan gradient samo lijevo — funkcija je citljivost, ne zatamnjenje fotografije */
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(95deg, rgba(43,38,33,0.56) 0%, rgba(43,38,33,0.40) 40%, rgba(43,38,33,0) 68%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    max-width:1320px;
+    margin:0 auto;
+    padding:150px 40px 90px;
+    width:100%;
+  }
+  .hero-text{max-width:540px;}
+  .hero .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--blush);
+    font-weight:500;
+    margin-bottom:24px;
+    text-shadow:0 1px 5px rgba(43,38,33,0.55);
+  }
+  .hero h1{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:54px;
+    line-height:1.18;
+    color:var(--ivory);
+    margin:0 0 26px;
+  }
+  .hero-lead{
+    font-size:16.5px;
+    line-height:1.75;
+    color:rgba(250,246,240,0.92);
+    margin:0 0 38px;
+  }
+  /* Hero CTA je discovery CTA — outline, namjerno slabiji od Clay buttona u Osobnom resetu */
+  .hero-cta{
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--ivory);
+    border:1px solid rgba(250,246,240,0.75);
+    padding:15px 32px;
+    border-radius:2px;
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .hero-cta:hover{background:var(--ivory);color:var(--asphalt);border-color:var(--ivory);}
+
+  /* ---------- 02 ZAŠTO POSTOJI ---------- */
+  .zasto{
+    max-width:1240px;
+    margin:0 auto;
+    padding:104px 40px;
+    display:grid;
+    grid-template-columns:0.72fr 1fr;
+    gap:72px;
+    align-items:start;
+  }
+  .zasto-photo{
+    aspect-ratio:4/5;
+    border-radius:3px;
+    overflow:hidden;
+    background:var(--linen);
+    background-size:cover;
+    background-position:center;
+  }
+  .zasto-text h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:38px;
+    line-height:1.28;
+    color:var(--asphalt);
+    margin:0 0 32px;
+    max-width:620px;
+  }
+  .zasto-text p{
+    font-size:16.5px;
+    line-height:1.8;
+    color:#4a453f;
+    margin:0 0 22px;
+    max-width:620px;
+  }
+  .istaknuta-misao{
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+    line-height:1.55;
+    color:var(--asphalt);
+    border-left:2px solid var(--eucalyptus);
+    padding:4px 0 4px 26px;
+    margin:38px 0;
+    max-width:620px;
+  }
+  .zasto-text .nastanak{
+    font-weight:500;
+    color:var(--asphalt);
+  }
+
+  /* ---------- 03 PRONAĐI ONO ŠTO JE TVOJE ---------- */
+  .discovery{
+    background:var(--linen);
+    padding:100px 0;
+  }
+  .discovery-inner{max-width:1240px;margin:0 auto;padding:0 40px;}
+  .discovery .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .discovery h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:40px;
+    color:var(--asphalt);
+    margin:0 0 18px;
+  }
+  .discovery .supporting{
+    font-size:16px;
+    color:#5b564f;
+    max-width:520px;
+    margin:0 0 66px;
+  }
+  .triptych{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+  }
+  .smjer{
+    padding:0 44px;
+    border-left:1px solid rgba(63,59,54,0.14);
+  }
+  .smjer:first-child{padding-left:0;border-left:none;}
+  .smjer:last-child{padding-right:0;}
+  .smjer-broj{
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--eucalyptus);
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .smjer h3{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:27px;
+    color:var(--asphalt);
+    margin:0 0 14px;
+  }
+  .smjer p{
+    font-size:15px;
+    line-height:1.75;
+    color:#5b564f;
+    margin:0 0 24px;
+  }
+  .smjer-cta{
+    font-size:13.5px;
+    letter-spacing:.4px;
+    color:var(--clay);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease;
+  }
+  .smjer-cta .strelica{
+    display:inline-block;
+    transition:transform .25s ease;
+  }
+  .smjer-cta:hover{border-bottom-color:var(--clay);}
+  .smjer-cta:hover .strelica{transform:translateX(4px);}
+
+  /* ---------- 04 RITUALI ---------- */
+  .rituali{
+    max-width:1240px;
+    margin:0 auto;
+    padding:108px 40px;
+  }
+  .rituali h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:38px;
+    line-height:1.3;
+    color:var(--asphalt);
+    margin:0 0 16px;
+    max-width:660px;
+  }
+  .rituali .supporting{
+    font-size:16px;
+    line-height:1.75;
+    color:#5b564f;
+    max-width:520px;
+    margin:0 0 72px;
+  }
+  .rituali-grid{
+    display:grid;
+    grid-template-columns:1.25fr 1fr 1fr 1.1fr;
+    gap:30px;
+    align-items:start;
+  }
+  /* instant-print tretman: tanki svijetli okvir, siri donji rub, vrlo blaga sjena */
+  .ritual{
+    background:#FCFAF7;
+    padding:10px 10px 0;
+    box-shadow:0 2px 14px rgba(63,59,54,0.07);
+    border-radius:2px;
+  }
+  .ritual .foto{
+    aspect-ratio:4/5;
+    background:var(--linen);
+    background-size:cover;
+    background-position:center;
+  }
+  .ritual .biljeska{
+    font-family:'Caveat',cursive;
+    font-size:19px;
+    line-height:1.35;
+    color:#5b564f;
+    padding:14px 6px 18px;
+    text-align:center;
+  }
+  .ritual:nth-child(1){transform:rotate(-1.2deg);margin-top:0;}
+  .ritual:nth-child(2){transform:rotate(0.8deg);margin-top:54px;}
+  .ritual:nth-child(3){transform:rotate(-0.6deg);margin-top:18px;}
+  .ritual:nth-child(4){transform:rotate(1.1deg);margin-top:72px;}
+  .zavrsna-misao{
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    line-height:1.5;
+    color:var(--asphalt);
+    max-width:560px;
+    margin:92px auto 0;
+    text-align:center;
+  }
+
+  /* ---------- 05 MOJIH 15 MINUTA — OSOBNI RESET ---------- */
+  .reset{
+    background:var(--linen);
+    padding:104px 0;
+  }
+  .reset-inner{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 40px;
+    display:grid;
+    grid-template-columns:1.02fr 0.98fr;
+    grid-template-areas:
+      "head visual"
+      "proces visual"
+      "cta visual";
+    column-gap:76px;
+    align-items:start;
+  }
+  .reset-head{grid-area:head;}
+  .reset-visual{grid-area:visual;align-self:center;}
+  .reset-proces{grid-area:proces;}
+  .reset-cta-wrap{grid-area:cta;}
+
+  .reset .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .reset h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:46px;
+    line-height:1.15;
+    color:var(--asphalt);
+    margin:0 0 6px;
+  }
+  .reset .descriptor{
+    font-size:15px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:30px;
+  }
+  .reset .problem{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    line-height:1.55;
+    color:var(--asphalt);
+    margin:0 0 22px;
+    max-width:520px;
+  }
+  .reset .objasnjenje{
+    font-size:16px;
+    line-height:1.8;
+    color:#4a453f;
+    margin:0 0 42px;
+    max-width:520px;
+  }
+  .proces{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px 34px;
+    max-width:520px;
+    margin-bottom:44px;
+  }
+  .korak .korak-broj{
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--eucalyptus);
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .korak .korak-naziv{
+    font-size:12.5px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--asphalt);
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .korak p{
+    font-size:14.5px;
+    line-height:1.65;
+    color:#5b564f;
+    margin:0;
+  }
+  /* primarni conversion CTA cijelog homepagea */
+  .reset-cta{
+    display:inline-block;
+    font-size:13.5px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:var(--ivory);
+    background:var(--clay);
+    padding:17px 38px;
+    border-radius:2px;
+    transition:background .25s ease;
+  }
+  .reset-cta:hover{background:#b06f56;}
+  .reset-visual .mockup{
+    aspect-ratio:4/5;
+    background:var(--ivory);
+    background-size:cover;
+    background-position:center;
+    border-radius:2px;
+    box-shadow:0 6px 30px rgba(63,59,54,0.10);
+  }
+
+  /* ---------- privremene oznake mjesta za fotografije ---------- */
+  .foto-placeholder{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    font-size:10.5px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:#a39b90;
+    line-height:2;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1080px){
+    .zasto{grid-template-columns:1fr;gap:44px;padding:80px 32px;}
+    .zasto-photo{max-width:430px;}
+    .rituali-grid{grid-template-columns:1fr 1fr;gap:26px;}
+    .ritual:nth-child(3){margin-top:0;}
+    .reset-inner{
+      grid-template-columns:1fr;
+      grid-template-areas:"head" "visual" "proces" "cta";
+      row-gap:44px;
+    }
+    .reset-visual{max-width:420px;}
+  }
+  @media (max-width:900px){
+    .hero{min-height:78vh;background-position:66% center;}
+    .hero::before{
+      background:linear-gradient(180deg, rgba(43,38,33,0.60) 0%, rgba(43,38,33,0.44) 48%, rgba(43,38,33,0.10) 100%);
+    }
+    .hero h1{font-size:42px;}
+    .hero-inner{padding:132px 32px 76px;}
+    .triptych{grid-template-columns:1fr;gap:44px;}
+    .smjer{padding:0;border-left:none;border-top:1px solid rgba(63,59,54,0.14);padding-top:34px;}
+    .smjer:first-child{border-top:none;padding-top:0;}
+  }
+  @media (max-width:640px){
+    .hero{min-height:auto;background-position:78% center;}
+    .hero-inner{padding:118px 24px 64px;}
+    .hero h1{font-size:33px;}
+    .hero-lead{font-size:15.5px;margin-bottom:32px;}
+    .zasto{padding:64px 24px;}
+    .zasto-text h2{font-size:29px;}
+    .istaknuta-misao{font-size:20px;}
+    .discovery{padding:70px 0;}
+    .discovery-inner{padding:0 24px;}
+    .discovery h2{font-size:30px;}
+    .discovery .supporting{margin-bottom:46px;}
+    .rituali{padding:70px 24px;}
+    .rituali h2{font-size:29px;}
+    .rituali .supporting{margin-bottom:46px;}
+    .rituali-grid{grid-template-columns:1fr;gap:34px;}
+    .ritual:nth-child(n){margin-top:0;}
+    .zavrsna-misao{font-size:21px;margin-top:62px;}
+    .reset{padding:70px 0;}
+    .reset-inner{padding:0 24px;}
+    .reset h2{font-size:34px;}
+    .proces{grid-template-columns:1fr;gap:24px;}
+  }
+  @media (max-width:600px){
+    header nav{display:none;}
+    .nav-toggle{display:flex;}
+    .header-inner{padding:18px 22px;}
+  }
+</style>
 </head>
+<body class="home">
 
-<body>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="Sweet Miles Club — početna">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </a>
+    <nav aria-label="Glavna navigacija">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="recepti.html">Recepti</a></li>
+        <li><a href="o-meni.html">O meni</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="mobileNav">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+</header>
 
-<h1>Sweet Miles Club</h1>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="logo">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </span>
+    <button class="nav-toggle" id="navCloseInner" aria-label="Zatvori navigaciju" style="display:flex;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <ul>
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="recepti.html">Recepti</a></li>
+    <li><a href="o-meni.html">O meni</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+</div>
 
-<p>Prva verzija stranice uspješno radi.</p>
+<main>
+
+  <!-- ================= 01 HERO ================= -->
+  <!-- FOTOGRAFIJA: golden hour, osoba u desnoj trecini kadra, drzi kavu.
+       Kad stigne, dodaj na .hero:  background-image:url('images/smc-hero.jpg'); -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">Trčanje · Balans · Život</div>
+        <h1>Svaki dan zaslužuje barem jedan trenutak koji pripada samo tebi.</h1>
+        <p class="hero-lead">Trčanje je moj način da se vratim sebi. Nekad je to šetnja, kava u miru ili nešto sasvim drugo. Nije važno što radiš — važno je da dio dana ponovno bude tvoj.</p>
+        <a href="#pronadji" class="hero-cta">Pronađi svojih 15 minuta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 ZAŠTO POSTOJI ================= -->
+  <section class="zasto">
+
+    <div class="zasto-photo" style="background-image:url('images/smc-zasto-postoji.jpg');" role="img" aria-label="Ivana sjedi na stubama u gradu, bijela košulja, sunčano poslijepodne"></div>
+
+    <div class="zasto-text">
+      <h2>Negdje između svega što sam morala, poželjela sam ponovno nešto što je samo moje.</h2>
+
+      <p>Kad je moje dijete malo poraslo i kad sam se napokon ponovno počela normalno naspavati, shvatila sam da mi nešto nedostaje. Dani su bili puni posla, kuhanja, čišćenja i obaveza. Radila sam puno toga što je trebalo napraviti, ali gotovo ništa što je bilo samo moje.</p>
+
+      <p>Poželjela sam ponovno vježbati. Otići negdje s prijateljicama. Razmisliti što ću obući jer se <em>ja</em> želim dobro osjećati u tome. Pustiti kosu umjesto automatski je svezati. Posvetiti pažnju sebi ne zato da bih se nekome svidjela, nego zato da se ponovno svidim <em>samoj sebi</em>.</p>
+
+      <p>S vremenom su se počeli vraćati i mali trenuci koji su bili samo moji. Nekad kroz trčanje, nekad kroz kavu u miru, šetnju, kuhanje ili nešto sasvim drugo. Nisu svi dani isti i ne izgleda svaki moj trenutak za sebe jednako.</p>
+
+      <p class="istaknuta-misao">Zajednička vrijednost tih aktivnosti nije produktivnost. Vrijednost je u tome što su napravljene za sebe.</p>
+
+      <p>S vremenom sam shvatila da taj osjećaj nije samo moj. Da mnoge žene, usred svega što treba napraviti, jednostavno izgube prostor za ono što je samo njihovo.</p>
+
+      <p class="nastanak">Iz tog iskustva nastao je Sweet Miles Club.</p>
+    </div>
+
+  </section>
+
+  <!-- ================= 03 PRONAĐI ONO ŠTO JE TVOJE ================= -->
+  <section class="discovery" id="pronadji">
+    <div class="discovery-inner">
+
+      <div class="eyebrow">Pronađi ono što je tvoje</div>
+      <h2>Što bi danas moglo biti tvoje?</h2>
+      <p class="supporting">Ne mora svaki trenutak za sebe izgledati isto. Odaberi ono što ti je danas najbliže.</p>
+
+      <div class="triptych">
+
+        <div class="smjer">
+          <div class="smjer-broj">01</div>
+          <h3>Istraži</h3>
+          <p>Znam što me zanima i želim istražiti, naučiti ili isprobati nešto novo.</p>
+          <a href="blog.html" class="smjer-cta">Istraži blog <span class="strelica">→</span></a>
+        </div>
+
+        <div class="smjer">
+          <div class="smjer-broj">02</div>
+          <h3>Napravi</h3>
+          <p>Danas mi se nešto kuha, peče ili jednostavno isprobava nešto novo.</p>
+          <a href="recepti.html" class="smjer-cta">Pronađi recept <span class="strelica">→</span></a>
+        </div>
+
+        <div class="smjer">
+          <div class="smjer-broj">03</div>
+          <h3>Kreni</h3>
+          <p>Želim nešto svoje, ali još ne znam što mi trenutno treba ni odakle krenuti.</p>
+          <a href="#osobni-reset" class="smjer-cta">Upoznaj Osobni reset <span class="strelica">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 RITUALI ================= -->
+  <section class="rituali">
+
+    <h2>Nekad mi treba pet kilometara. Nekad samo kava u miru.</h2>
+    <p class="supporting">Ne izgleda svaki moj trenutak za sebe jednako. I baš zato ga ne pokušavam uklopiti u pravila.</p>
+
+    <!-- FOTOGRAFIJE: cetiri autenticne fotografije.
+         Kad stignu, na svaki .foto dodaj  style="background-image:url('images/smc-ritual-….jpg');" -->
+    <div class="rituali-grid">
+
+      <div class="ritual">
+        <div class="foto" style="background-image:url('images/smc-ritual-trcanje.jpg');" role="img" aria-label="Ivana trči uz rijeku u suton"></div>
+        <div class="biljeska">Danas mi je trebalo trčanje.</div>
+      </div>
+
+      <div class="ritual">
+        <div class="foto" style="background-image:url('images/smc-ritual-kava.jpg');" role="img" aria-label="Šalica kave na kuhinjskoj radnoj ploči u jutarnjem svjetlu"></div>
+        <div class="biljeska">Kava koju nisam popila u hodu.</div>
+      </div>
+
+      <div class="ritual">
+        <div class="foto" style="background-image:url('images/smc-ritual-njega.jpg');" role="img" aria-label="Ruka sa svježe nalakiranim noktima"></div>
+        <div class="biljeska">Samo zato što se ja želim osjećati lijepo.</div>
+      </div>
+
+      <div class="ritual">
+        <div class="foto" style="background-image:url('images/smc-ritual-kuhanje.jpg');" role="img" aria-label="Ruke miješaju čokoladno tijesto u zdjeli, kalupi za muffine sa strane"></div>
+        <div class="biljeska">Napravila sam ga samo zato što mi se radilo.</div>
+      </div>
+
+    </div>
+
+    <p class="zavrsna-misao">Ne mora svaki dan izgledati isto. Bitno je da u njemu ostane nešto tvoje.</p>
+
+  </section>
+
+  <!-- ================= 05 MOJIH 15 MINUTA — OSOBNI RESET ================= -->
+  <section class="reset" id="osobni-reset">
+    <div class="reset-inner">
+
+      <div class="reset-head">
+        <div class="eyebrow">Besplatni osobni reset</div>
+        <h2>Mojih 15 minuta</h2>
+        <div class="descriptor">Osobni reset</div>
+        <p class="problem">Kad dugo radiš sve što moraš, lako zaboraviš što bi napravila samo zato što ti to želiš.</p>
+        <p class="objasnjenje">Kratki osobni reset koji ti pomaže zastati, prepoznati što ti trenutno nedostaje i pronaći malo prostora za nešto što je samo tvoje — unutar života koji već imaš.</p>
+      </div>
+
+      <!-- VIZUAL PROIZVODA: finalni mockup workbooka (uspravna verzija, 4:5). -->
+      <div class="reset-visual">
+        <div class="mockup" style="background-image:url('images/smc-reset-mockup-mobile.jpg');" role="img" aria-label="Workbook &bdquo;Mojih 15 minuta &mdash; Osobni reset&ldquo; sa spiralnim uvezom"></div>
+      </div>
+
+      <div class="reset-proces">
+        <div class="proces">
+          <div class="korak">
+            <div class="korak-broj">01</div>
+            <div class="korak-naziv">Stani</div>
+            <p>Na trenutak makni ono što moraš.</p>
+          </div>
+          <div class="korak">
+            <div class="korak-broj">02</div>
+            <div class="korak-naziv">Prepoznaj</div>
+            <p>Primijeti što ti trenutno nedostaje.</p>
+          </div>
+          <div class="korak">
+            <div class="korak-broj">03</div>
+            <div class="korak-naziv">Odaberi</div>
+            <p>Odaberi nešto što bi napravila samo za sebe.</p>
+          </div>
+          <div class="korak">
+            <div class="korak-broj">04</div>
+            <div class="korak-naziv">Napravi prostor</div>
+            <p>Pronađi gdje to stvarno stane u tvoj život.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRIMARNI CTA cijelog homepagea. Vodi na landing Osobnog reseta. -->
+      <div class="reset-cta-wrap">
+        <a href="osobni-reset.html" class="reset-cta">Pogledaj Osobni reset →</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo" aria-label="Sweet Miles Club — početna">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </a>
+    <nav class="footer-nav" aria-label="Footer navigacija">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="recepti.html">Recepti</a></li>
+        <li><a href="o-meni.html">O meni</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sweetmilesclub/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#FAF6F0" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="#FAF6F0" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="#FAF6F0"/></svg>
+        </a>
+        <a href="https://www.facebook.com/sweetmilesclub" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M14 22v-9h3l.5-4H14V6.5C14 5.3 14.4 4.5 16.1 4.5H17.5V1.1C17 1 15.9.8 14.7.8 12.1.8 10.3 2.4 10.3 5.4V9H7.5v4H10.3v9H14Z"/></svg>
+        </a>
+      </div>
+      <span class="footer-sep"></span>
+      <span class="footer-signature">mojih 15 minuta ♡</span>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <span>© <span id="year"></span> Sweet Miles Club</span>
+    <span><a href="privatnost.html">Privatnost</a> · <a href="kolacici.html">Kolačići</a></span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="hr" style="scroll-behavior:smooth;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Sweet Miles Club</title>
+<meta name="description" content="Priče iz stvarnih dana — trčanje, vrijeme za sebe i put do 21,1 km. Bez pritiska da nešto odmah naučiš ili promijeniš.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- SEO / Open Graph / favicon -->
+<link rel="canonical" href="https://sweetmilesclub.com/blog">
+<meta name="theme-color" content="#FAF6F0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sweet Miles Club">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:title" content="Blog — Sweet Miles Club">
+<meta property="og:description" content="Priče iz stvarnih dana — trčanje, vrijeme za sebe i put do 21,1 km. Bez pritiska da nešto odmah naučiš ili promijeniš.">
+<meta property="og:url" content="https://sweetmilesclub.com/blog">
+<meta property="og:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zalazak sunca, žena u terakota haljini s kavom u ruci">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Sweet Miles Club">
+<meta name="twitter:description" content="Priče iz stvarnih dana — trčanje, vrijeme za sebe i put do 21,1 km. Bez pritiska da nešto odmah naučiš ili promijeniš.">
+<meta name="twitter:image" content="https://sweetmilesclub.com/images/smc-og.jpg">
+
+<style>
+  .blog-hero{
+    max-width:1320px;
+    margin:0 auto;
+    padding:34px 40px 48px;
+    min-height:auto;
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:60px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .blog-hero h1{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:56px;
+    color:var(--asphalt);
+    margin:0 0 22px;
+  }
+  .blog-hero .lead{
+    font-size:16px;
+    color:#5b564f;
+    max-width:420px;
+    margin:0 0 34px;
+  }
+  .hero-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:13.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ivory);
+    background:var(--clay);
+    padding:14px 30px;
+    border-radius:2px;
+    transition:background .25s ease;
+  }
+  .hero-cta:hover{background:#b06f56;}
+  .featured-article{
+    display:block;
+    position:relative;
+  }
+  .featured-article .thumb{
+    position:relative;
+    aspect-ratio:16/11;
+    border-radius:3px;
+    overflow:hidden;
+    margin-bottom:22px;
+  }
+  .featured-article .thumb svg{width:100%;height:100%;display:block;}
+  .article-tag{
+    position:absolute;
+    top:16px;
+    left:16px;
+    font-size:10.5px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    background:rgba(250,246,240,0.92);
+    color:var(--asphalt);
+    padding:6px 13px;
+    border-radius:999px;
+  }
+  .featured-article h2{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:26px;
+    margin:0 0 12px;
+    line-height:1.3;
+  }
+  .featured-article p{
+    font-size:15px;
+    color:#5b564f;
+    margin:0 0 14px;
+    max-width:520px;
+  }
+  .article-link{
+    font-size:13px;
+    letter-spacing:.5px;
+    color:var(--clay);
+    border-bottom:1px solid transparent;
+    display:inline-block;
+    transition:border-color .2s ease;
+  }
+  .featured-article:hover .article-link,
+  .article-card:hover .article-link{border-bottom-color:var(--clay);}
+  .latest-section{
+    max-width:1320px;
+    margin:0 auto;
+    padding:20px 40px 110px;
+  }
+  .latest-section h2.section-title{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:28px;
+    margin:0 0 40px;
+  }
+  .article-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:36px;
+  }
+  .article-card{
+    display:flex;
+    flex-direction:column;
+  }
+  .article-card .thumb{
+    position:relative;
+    aspect-ratio:4/3;
+    border-radius:3px;
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .article-card .thumb svg{width:100%;height:100%;display:block;}
+  .article-meta{
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#8a847a;
+    margin-bottom:8px;
+  }
+  .article-card h3{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:19px;
+    margin:0 0 10px;
+    line-height:1.3;
+  }
+  .article-card p{
+    font-size:14px;
+    color:#5b564f;
+    margin:0 0 12px;
+  }
+  @media (max-width:1080px){
+    .article-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:900px){
+    .blog-hero{grid-template-columns:1fr;min-height:auto;padding:28px 28px 40px;}
+    .blog-hero h1{font-size:42px;}
+  }
+  @media (max-width:600px){
+    header nav{display:none;}
+    .nav-toggle{display:flex;}
+    .header-inner{padding:18px 22px;}
+    .article-grid{grid-template-columns:1fr;}
+    .latest-section{padding:10px 22px 80px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="Sweet Miles Club — početna">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </a>
+    <nav aria-label="Glavna navigacija">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+        <li><a href="recepti.html">Recepti</a></li>
+        <li><a href="o-meni.html">O meni</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Otvori navigaciju" aria-expanded="false" aria-controls="mobileNav">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="logo">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </span>
+    <button class="nav-toggle" id="navCloseInner" aria-label="Zatvori navigaciju" style="display:flex;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3F3B36" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html" aria-current="page">Blog</a></li>
+    <li><a href="recepti.html">Recepti</a></li>
+    <li><a href="o-meni.html">O meni</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+</div>
+
+<main>
+
+  <!-- ================= HERO: intro + featured article ================= -->
+  <section class="blog-hero">
+    <div class="hero-intro">
+      <div class="eyebrow">SMC Blog</div>
+      <h1>Blog</h1>
+      <p class="lead">Trčanje, vrijeme za sebe, svakodnevni život i put do 21,1 km — priče iz stvarnih dana, bez pritiska da nešto naučiš ili promijeniš odmah.</p>
+      <a href="#najnoviji-clanci" class="hero-cta">Započni čitati →</a>
+    </div>
+
+    <!-- reusable: featured article block -->
+    <a href="clanak-zasto-sam-prijavila-polumaraton.html" class="featured-article">
+      <div class="thumb" style="background-image:url('images/smc-blog-polumaraton.jpg');background-size:cover;background-position:center 38%;">
+        <span class="article-tag">Put do 21,1 km</span>
+      </div>
+      <h2>Zašto sam uopće prijavila polumaraton</h2>
+      <p>Nisam trčala zbog medalje. Ovo je priča o odluci koja je počela kao ideja u glavi, a pretvorila se u tjedni raspored treninga.</p>
+      <span class="article-link">Pročitaj članak →</span>
+    </a>
+  </section>
+
+  <!-- ================= LATEST ARTICLES ================= -->
+  <section class="latest-section" id="najnoviji-clanci">
+    <h2 class="section-title">Najnoviji članci</h2>
+
+    <div class="article-grid">
+
+      <!-- reusable: article card component -->
+      <a href="clanak-prvih-5-km-nakon-pauze.html" class="article-card">
+        <div class="thumb" style="background-image:url('images/smc-kartica-prvih-5km.jpg');background-size:cover;background-position:center;">
+          <span class="article-tag">Trčanje</span>
+        </div>
+        <div class="article-meta">21. kolovoza 2026. · 4 min čitanja</div>
+        <h3>Prvih 5 km nakon pauze</h3>
+        <p>Tri mjeseca bez trčanja i onda prvi izlazak — sporije, teže i puno emotivnije nego što sam očekivala.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+      <a href="clanak-kava-koja-mi-vraca-dan.html" class="article-card">
+        <div class="thumb" style="background-image:url('images/smc-kartica-kava.jpg');background-size:cover;background-position:center;">
+          <span class="article-tag">Mojih 15 minuta</span>
+        </div>
+        <div class="article-meta">6. rujna 2026. · 3 min čitanja</div>
+        <h3>Kava koja mi vraća dan</h3>
+        <p>Nekad su to samo deset minuta i šalica kave dok je kuća još tiha, a taj mali ritual mi je postao važniji od svakog velikog plana.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+      <a href="clanak-dan-kad-sam-otkazala-sve.html" class="article-card">
+        <div class="thumb" style="background-image:url('images/smc-kartica-otkazala-sve.jpg');background-size:cover;background-position:center;">
+          <span class="article-tag">Život</span>
+        </div>
+        <div class="article-meta">28. kolovoza 2026. · 5 min čitanja</div>
+        <h3>Dan kad sam otkazala sve</h3>
+        <p>Popis obaveza je čekao. Ja nisam. O tome zašto je ponekad najproduktivnija stvar koju možeš napraviti — da ništa ne napraviš.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+      <a href="clanak-tjedan-3-motivacija.html" class="article-card">
+        <div class="thumb" style="background-image:url('images/smc-kartica-tjedan-3.jpg');background-size:cover;background-position:center;">
+          <span class="article-tag">Put do 21,1 km</span>
+        </div>
+        <div class="article-meta">12. rujna 2026. · 4 min čitanja</div>
+        <h3>Tjedan 3: kad motivacija padne na nulu</h3>
+        <p>Plan je bio jasan na papiru. Onda je došao tjedan kad nisam htjela obuti tenisice — i što sam iz toga naučila.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo" aria-label="Sweet Miles Club — početna">
+      <span class="smc">SMC</span>
+      <span class="full">SWEET MILES CLUB</span>
+    </a>
+
+    <nav class="footer-nav" aria-label="Footer navigacija">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="recepti.html">Recepti</a></li>
+        <li><a href="o-meni.html">O meni</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sweetmilesclub/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#FAF6F0" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="#FAF6F0" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="#FAF6F0"/></svg>
+        </a>
+        <a href="https://www.facebook.com/sweetmilesclub" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M14 22v-9h3l.5-4H14V6.5C14 5.3 14.4 4.5 16.1 4.5H17.5V1.1C17 1 15.9.8 14.7.8 12.1.8 10.3 2.4 10.3 5.4V9H7.5v4H10.3v9H14Z"/></svg>
+        </a>
+      </div>
+      <span class="footer-sep"></span>
+      <span class="footer-signature">mojih 15 minuta ♡</span>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <span>© <span id="year"></span> Sweet Miles Club</span>
+    <span><a href="privatnost.html">Privatnost</a> · <a href="kolacici.html">Kolačići</a></span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

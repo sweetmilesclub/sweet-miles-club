@@ -1,0 +1,128 @@
+/* Sweet Miles Club — zajednički stilovi za cijeli web.
+
+   Mijenjaj OVDJE i mijenja se na svim stranicama odjednom.
+
+   Stilovi specifični za pojedinu stranicu ostaju u toj stranici. */
+
+
+
+/* ---------- Boje i tipografija ---------- */
+
+:root{
+  --ivory:#FAF6F0;
+  --linen:#F1ECE3;
+  --clay:#C4826A;
+  --clay-soft:#EADAD2;
+  --eucalyptus:#9DAB92;
+  --eucalyptus-soft:#E4E9E0;
+  --blush:#F3DCD3;
+  --asphalt:#3F3B36;
+}
+
+
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--asphalt);
+    font-family:'Poppins',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+  }
+
+a{color:inherit;text-decoration:none;}
+
+img{max-width:100%;display:block;}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,246,240,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(63,59,54,0.08);
+  }
+
+.header-inner{
+    max-width:1320px;
+    margin:0 auto;
+    padding:22px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+.logo{display:flex;flex-direction:column;line-height:1.05;}
+
+.logo .smc{font-family:'Playfair Display',serif;font-weight:600;font-size:23px;letter-spacing:5px;color:var(--asphalt);}
+
+.logo .full{font-family:'Poppins',sans-serif;font-weight:500;font-size:9px;letter-spacing:3px;color:var(--clay);margin-top:4px;}
+
+nav ul{list-style:none;display:flex;gap:40px;margin:0;padding:0;}
+
+nav a{font-size:14px;letter-spacing:.3px;font-family:'Poppins',sans-serif;font-weight:400;color:var(--asphalt);padding-bottom:5px;border-bottom:1px solid transparent;transition:border-color .25s ease, color .25s ease;}
+
+nav a:hover, nav a[aria-current="page"]{color:var(--clay);border-bottom-color:var(--clay);}
+
+.nav-toggle{display:none;background:none;border:none;padding:6px;cursor:pointer;align-items:center;justify-content:center;}
+
+.nav-toggle svg{width:22px;height:22px;display:block;}
+
+.nav-toggle .icon-close{display:none;}
+
+body.mobile-nav-open .nav-toggle .icon-open{display:none;}
+
+body.mobile-nav-open .nav-toggle .icon-close{display:block;}
+
+.mobile-nav{display:none;position:fixed;inset:0;z-index:100;background:var(--ivory);padding:22px 24px;overflow-y:auto;}
+
+body.mobile-nav-open .mobile-nav{display:block;}
+
+body.mobile-nav-open{overflow:hidden;}
+
+.mobile-nav .mobile-nav-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
+
+.mobile-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px;}
+
+.mobile-nav a{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;color:var(--asphalt);}
+
+.mobile-nav a[aria-current="page"]{color:var(--clay);}
+
+footer{background:var(--ivory);border-top:1px solid rgba(63,59,54,0.1);padding:26px 40px;}
+
+.footer-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+
+.footer-logo{display:flex;flex-direction:column;line-height:1.05;}
+
+.footer-logo .smc{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;letter-spacing:4px;}
+
+.footer-logo .full{font-size:8px;letter-spacing:2.5px;color:var(--clay);margin-top:3px;}
+
+.footer-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:26px;margin:0;padding:0;}
+
+.footer-nav a{font-size:13px;color:var(--asphalt);opacity:.85;}
+
+.footer-nav a:hover{color:var(--clay);opacity:1;}
+
+.footer-right{display:flex;align-items:center;gap:18px;}
+
+.footer-social{display:flex;gap:14px;}
+
+.footer-social a{width:30px;height:30px;border-radius:50%;background:var(--asphalt);display:flex;align-items:center;justify-content:center;}
+
+.footer-social a svg{width:13px;height:13px;fill:var(--ivory);}
+
+.footer-sep{width:1px;height:22px;background:rgba(63,59,54,0.25);}
+
+.footer-signature{font-family:'Caveat',cursive;font-size:22px;color:var(--clay);}
+
+.footer-legal{max-width:1320px;margin:16px auto 0;padding-top:16px;border-top:1px solid rgba(63,59,54,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:#8a847a;}
+
+.footer-legal a:hover{color:var(--clay);}
+
+@media (max-width:700px){
+    .footer-inner{flex-direction:column;align-items:flex-start;}
+    .footer-legal{flex-direction:column;}
+  }
