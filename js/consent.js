@@ -82,13 +82,13 @@
                 title: 'Tvoj izbor',
                 description:
                   'Ovdje biraš koje kategorije kolačića Sweet Miles Club smije koristiti. ' +
-                  'Nužni su uvijek uključeni jer bez njih stranica ne radi ispravno. ' +
+                  'Nužni su uvijek uključeni jer omogućuju osnovne funkcije stranice i pamćenje tvojeg izbora privatnosti. ' +
                   'Ostale kategorije su isključene dok ih sama ne uključiš.'
               },
               {
                 title: 'Nužni',
                 description:
-                  'Omogućuju osnovni rad i sigurnost stranice te pamte tvoj izbor u ovim postavkama ' +
+                  'Omogućuju osnovne funkcije stranice i pamte tvoj izbor u ovim postavkama ' +
                   '(kolačić cc_cookie). Ne mogu se isključiti.',
                 linkedCategory: 'necessary'
               },
