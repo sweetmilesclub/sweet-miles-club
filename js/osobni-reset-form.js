@@ -2,7 +2,7 @@
 //
 // Vlastiti obrazac umjesto MailerLite embeda: prije klika na "Pošalji"
 // stranica ne kontaktira MailerLite i ništa ne sprema u preglednik.
-// Tek na slanje ide JEDAN zahtjev na postojeću MailerLite formu
+// Tek na slanje ide JEDAN POST zahtjev na postojeću MailerLite formu
 // "Osobni reset — forma", isti endpoint i parametri koje koristi
 // MailerLiteov vlastiti embed, kako bi se zadržao okidač automatizacije
 // "Completes a form".
@@ -112,8 +112,12 @@
 
     setSending(true);
 
-    fetch(ENDPOINT + '?' + params.toString(), {
-      method: 'GET',
+    // POST s podacima u tijelu (application/x-www-form-urlencoded):
+    // e-mail nije u URL-u, pa ne završava u logovima adresa. Ovakav
+    // zahtjev je "jednostavan" CORS zahtjev, bez preflighta.
+    fetch(ENDPOINT, {
+      method: 'POST',
+      body: params,
       mode: 'cors',
       credentials: 'omit',
       cache: 'no-store',
