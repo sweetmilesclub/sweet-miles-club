@@ -156,3 +156,102 @@ footer{background:var(--ivory);border-top:1px solid rgba(63,59,54,0.1);padding:2
     .footer-inner{flex-direction:column;align-items:flex-start;}
     .footer-legal{flex-direction:column;}
   }
+
+
+/* ---------- Postavke kolačića (vanilla-cookieconsent) ----------
+   Samo boje, tipografija i oblik u SMC stilu. Logika: js/consent.js.
+   Sve tri odluke ("Prihvati sve", "Odbij sve", "Prilagodi") imaju
+   jednaku težinu, pa odbijanje nije teže od prihvaćanja.
+   Težine fontova ostaju unutar self-hostanog skupa (Poppins 300/400/500,
+   Playfair Display 500). */
+
+#cc-main{
+  --cc-font-family:'Poppins',sans-serif;
+  --cc-modal-border-radius:3px;
+  --cc-btn-border-radius:2px;
+  --cc-bg:var(--ivory);
+  --cc-primary-color:var(--asphalt);
+  --cc-secondary-color:#5a544d;
+  --cc-link-color:var(--asphalt);
+
+  --cc-btn-primary-bg:var(--asphalt);
+  --cc-btn-primary-color:var(--ivory);
+  --cc-btn-primary-border-color:var(--asphalt);
+  --cc-btn-primary-hover-bg:#2a2724;
+  --cc-btn-primary-hover-color:var(--ivory);
+  --cc-btn-primary-hover-border-color:#2a2724;
+
+  --cc-btn-secondary-bg:var(--asphalt);
+  --cc-btn-secondary-color:var(--ivory);
+  --cc-btn-secondary-border-color:var(--asphalt);
+  --cc-btn-secondary-hover-bg:#2a2724;
+  --cc-btn-secondary-hover-color:var(--ivory);
+  --cc-btn-secondary-hover-border-color:#2a2724;
+
+  --cc-separator-border-color:rgba(63,59,54,0.12);
+  --cc-toggle-on-bg:var(--clay);
+  --cc-toggle-off-bg:#b8b0a5;
+  --cc-toggle-on-knob-bg:#fff;
+  --cc-toggle-off-knob-bg:#fff;
+  --cc-toggle-enabled-icon-color:var(--clay);
+  --cc-toggle-disabled-icon-color:#8a847a;
+  --cc-toggle-readonly-bg:#d8cdbb;
+  --cc-toggle-readonly-knob-bg:#fff;
+  --cc-toggle-readonly-knob-icon-color:#8a847a;
+
+  --cc-section-category-border:rgba(63,59,54,0.12);
+  --cc-cookie-category-block-bg:var(--linen);
+  --cc-cookie-category-block-border:var(--linen);
+  --cc-cookie-category-block-hover-bg:#ebe4d8;
+  --cc-cookie-category-block-hover-border:#ebe4d8;
+  --cc-cookie-category-expanded-block-bg:transparent;
+  --cc-cookie-category-expanded-block-hover-bg:var(--linen);
+  --cc-overlay-bg:rgba(42,39,36,0.45);
+  --cc-footer-bg:var(--linen);
+  --cc-footer-color:#5a544d;
+  --cc-footer-border-color:rgba(63,59,54,0.08);
+  --cc-webkit-scrollbar-bg:#d8cdbb;
+  --cc-webkit-scrollbar-hover-bg:#b8b0a5;
+  font-weight:300;
+}
+#cc-main .cm,
+#cc-main .pm{box-shadow:0 10px 40px rgba(42,39,36,0.18);}
+#cc-main .cm__title,
+#cc-main .pm__title{
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  letter-spacing:0;
+}
+#cc-main .cm__title{font-size:1.25em;}
+#cc-main .pm__title{font-size:1.3em;}
+#cc-main .cm__desc,
+#cc-main .pm__section-desc{line-height:1.65;}
+#cc-main .pm__section-title{font-weight:500;}
+#cc-main a,
+#cc-main b,
+#cc-main strong{font-weight:500;}
+#cc-main .cm__btn,
+#cc-main .pm__btn{
+  font-weight:400;
+  font-size:.82em;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+#cc-main .cm__btn:focus-visible,
+#cc-main .pm__btn:focus-visible,
+#cc-main .section__toggle:focus-visible + .toggle__icon{
+  outline:2px solid var(--clay);
+  outline-offset:2px;
+}
+
+/* Trajna poveznica "Postavke kolačića" u podnožju — izgleda kao ostale poveznice. */
+.footer-cc{
+  font:inherit;
+  color:inherit;
+  background:none;
+  border:0;
+  padding:0;
+  cursor:pointer;
+}
+.footer-cc:hover{color:var(--clay);}
+.footer-cc:focus-visible{outline:2px solid var(--clay);outline-offset:2px;}

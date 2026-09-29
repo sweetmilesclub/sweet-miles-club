@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recepti — Sweet Miles Club</title>
 <meta name="description" content="Jednostavni recepti koje stvarno pripremam — bez komplikacije i bez dugog popisa sastojaka.">
+<link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
@@ -255,11 +256,13 @@
   </div>
   <div class="footer-legal">
     <span>© <span id="year"></span> Sweet Miles Club</span>
-    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a></span>
+    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a> · <button type="button" class="footer-cc" data-cc="show-preferencesModal">Postavke kolačića</button></span>
   </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+<script src="js/consent.js"></script>
 
 </body>
 </html>
