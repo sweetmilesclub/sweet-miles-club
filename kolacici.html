@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kolačići — Sweet Miles Club</title>
 <meta name="description" content="Koje kolačiće Sweet Miles Club koristi, čemu služe i kako ih možeš isključiti.">
+<link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
@@ -90,6 +91,8 @@
   }
   .pravno a{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
   .pravno a:hover{border-bottom-color:var(--clay);}
+  .pravno .pravno-cc{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
+  .pravno .pravno-cc:hover{color:var(--clay);border-bottom-color:var(--clay);}
   .pravno .kontakt-blok{
     border-left:2px solid var(--eucalyptus);
     padding:4px 0 4px 24px;
@@ -166,7 +169,7 @@
 
     <h2>Kolačići koje postavlja sama stranica</h2>
 
-    <p>Nijedan. Sweet Miles Club nema korisničke račune, košaricu ni sustav komentara, pa nema ni vlastite kolačiće.</p>
+    <p>Samo jedan: <strong>cc_cookie</strong>. U njemu stranica pamti tvoj izbor u postavkama kolačića, odnosno koje si kategorije prihvatila ili odbila i kada, kako te ne bi pitala pri svakom posjetu. Nužan je za rad postavki kolačića, ne sadrži tvoje ime ni e-mail adresu i ne dijeli se s vanjskim servisima. Vrijedi šest mjeseci, nakon čega te stranica ponovno pita.</p>
 
     <h2>Nužni kolačići pružatelja usluge</h2>
 
@@ -190,11 +193,23 @@
 
     <p>Trenutno <strong>nema</strong> alata za mjerenje posjećenosti, nema Google Analyticsa, nema Meta Pixela i nema oglasnih kolačića.</p>
 
-    <p>Ako to jednom uvedem, prije toga ću postaviti traku za privole na kojoj ćeš moći jednako jednostavno prihvatiti ili odbiti takve kolačiće, i predomisliti se kasnije. Dok se to ne dogodi, ova će stranica biti dopunjena, a <a href="privatnost.html">politika privatnosti</a> usklađena.</p>
+    <h2>Kategorije kolačića</h2>
 
-    <h2>Kako isključiti kolačiće</h2>
+    <p>Pri prvom posjetu stranica te pita za privolu. Kolačiće dijelim u tri kategorije:</p>
 
-    <p>Kolačiće u svakom trenutku možeš blokirati ili obrisati u postavkama svog preglednika, obično pod stavkom „Privatnost i sigurnost".</p>
+    <ul>
+      <li><strong>Nužni</strong> — uvijek uključeni. Omogućuju rad i sigurnost stranice te pamte tvoj izbor (cc_cookie i Cloudflareov sigurnosni kolačić opisan gore).</li>
+      <li><strong>Analitički</strong> — za mjerenje posjećenosti. Trenutno se ne koristi nijedan analitički alat.</li>
+      <li><strong>Marketinški</strong> — za mjerenje i prikazivanje oglasa na drugim platformama. Trenutno se ne koristi nijedan marketinški alat.</li>
+    </ul>
+
+    <p>Analitičke i marketinške kategorije zadano su isključene i mogu se uključiti samo ako ih ti prihvatiš. Ako jednom uvedem takav alat, prije toga ću dopuniti ovu stranicu i <a href="privatnost.html">politiku privatnosti</a>, a stranica će te ponovno pitati za privolu.</p>
+
+    <h2>Kako promijeniti svoj izbor</h2>
+
+    <p>Svoj izbor možeš promijeniti ili povući u bilo kojem trenutku preko poveznice <button type="button" class="footer-cc pravno-cc" data-cc="show-preferencesModal">Postavke kolačića</button>, koja se nalazi i u podnožju svake stranice. Promjena vrijedi odmah i za nju ne moraš brisati podatke preglednika.</p>
+
+    <p>Kolačiće možeš i blokirati ili obrisati u postavkama svog preglednika, obično pod stavkom „Privatnost i sigurnost".</p>
 
     <p>Ako te nešto zanima, piši mi na <a href="mailto:hello@sweetmilesclub.com">hello@sweetmilesclub.com</a>.</p>
 
@@ -231,11 +246,13 @@
   </div>
   <div class="footer-legal">
     <span>© <span id="year"></span> Sweet Miles Club</span>
-    <span><a href="privatnost.html">Privatnost</a> · <a href="kolacici.html">Kolačići</a></span>
+    <span><a href="privatnost.html">Privatnost</a> · <a href="kolacici.html">Kolačići</a> · <button type="button" class="footer-cc" data-cc="show-preferencesModal">Postavke kolačića</button></span>
   </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+<script src="js/consent.js"></script>
 
 </body>
 </html>
