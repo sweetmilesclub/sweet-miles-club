@@ -6,21 +6,23 @@
 // Kategorije:
 //   necessary  — uvijek uključena, ne može se isključiti
 //   analytics  — Google Analytics 4 (js/analytics.js), samo uz privolu
-//   marketing  — rezervirano za buduće oglasne alate (trenutno nema aktivnih servisa)
+//   marketing  — Meta Pixel (js/meta-analytics.js), samo uz privolu
 //
-// GA4 se ne učitava preko data-category skripte nego preko js/analytics.js:
-// onConsent / onChange pozivaju SMCAnalytics.sync(), koji učitava ili gasi GA.
+// GA4 i Meta Pixel ne učitavaju se preko data-category skripti nego preko
+// js/analytics.js i js/meta-analytics.js: onConsent / onChange pozivaju
+// SMCAnalytics.sync() i SMCMeta.sync(), koji učitavaju ili gase svaki alat.
 //
 // REVISION: podiže se samo kad se promijeni opseg VEĆ OBJAVLJENE privole
 // (npr. novi alat u kategoriji koju su posjetitelji već prihvatili).
-// Prvi produkcijski CMP izlazi zajedno s GA4, pa ostaje 1.
+// 1 = GA4 (30. 9. 2026.). 2 = uveden Meta Pixel u kategoriji marketing, pa
+// svi ponovno biraju.
 
 (function () {
   'use strict';
 
   if (!window.CookieConsent) return;
 
-  var REVISION = 1;
+  var REVISION = 2;
 
   window.CookieConsent.run({
     revision: REVISION,
@@ -55,14 +57,20 @@
           cookies: [{ name: /^_ga/ }]
         }
       },
-      marketing: {}
+      marketing: {
+        autoClear: {
+          cookies: [{ name: /^_fbp$/ }, { name: /^_fbc$/ }]
+        }
+      }
     },
 
     onConsent: function () {
       if (window.SMCAnalytics) window.SMCAnalytics.sync();
+      if (window.SMCMeta) window.SMCMeta.sync();
     },
     onChange: function () {
       if (window.SMCAnalytics) window.SMCAnalytics.sync();
+      if (window.SMCMeta) window.SMCMeta.sync();
     },
 
     language: {
@@ -74,7 +82,7 @@
             description:
               'Koristim samo ono što je nužno da stranica radi i da zapamti tvoj izbor. ' +
               'Uz tvoju privolu koristim i Google Analytics, kako bih vidjela koji je sadržaj koristan. ' +
-              'Marketinške alate trenutno ne koristim. ' +
+              'Uz posebnu privolu koristim i Meta Pixel, za mjerenje učinka oglasa na Facebooku i Instagramu. ' +
               'Izbor možeš promijeniti bilo kada preko poveznice „Postavke kolačića” u podnožju stranice.',
             acceptAllBtn: 'Prihvati sve',
             acceptNecessaryBtn: 'Odbij sve',
@@ -116,8 +124,11 @@
               {
                 title: 'Marketinški',
                 description:
-                  'Služili bi za mjerenje i prikazivanje oglasa na drugim platformama. ' +
-                  'Trenutno se ne koristi nijedan marketinški alat.',
+                  'Meta Pixel (Meta Platforms) mjeri učinak mojih oglasa na Facebooku i Instagramu: ' +
+                  'je li posjet ili prijava za workbook došla iz oglasa. Može služiti i za prikazivanje oglasa ' +
+                  'ljudima koji su već posjetili stranicu (remarketing), ako takvu publiku postavim. ' +
+                  'Postavlja kolačiće _fbp i _fbc. ' +
+                  'Ne šaljem mu tvoju e-mail adresu, ime ni ono što upišeš u obrazac.',
                 linkedCategory: 'marketing'
               },
               {
