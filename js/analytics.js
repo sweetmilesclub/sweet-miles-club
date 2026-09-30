@@ -107,11 +107,15 @@
 
   // Šalje događaj samo ako je analytics privola dana u ovom trenutku.
   // options.callback se uvijek pozove točno jednom (i bez privole, odmah).
-  // S privolom: callback se poziva tek kad se collect request s ovim
-  // događajem stvarno ZAVRŠI (Resource Timing), a najkasnije nakon
-  // options.timeout ms — korisnik nikad ne čeka dulje od toga.
-  // (gtag event_callback sam po sebi nije dovoljan: okida se čim GA4
-  // pokrene slanje, pa preusmjeravanje može prekinuti request.)
+  //
+  // callback znači "stranica se odmah napušta" (npr. preusmjeravanje na /hvala).
+  // GA4 događaje drži u redu ~5 s prije slanja, a event_callback okida već
+  // nakon ~20 ms, PRIJE slanja (izmjereno na Previewu). Red se odmah šalje
+  // (fetch keepalive) tek na pagehide. Zato: kad GA4 obradi događaj
+  // (event_callback), javljamo pagehide — to je stvarno napuštanje stranice
+  // koje slijedi — i čekamo da collect request s događajem ZAVRŠI
+  // (Resource Timing). Najkasnije nakon options.timeout ms callback se
+  // poziva u svakom slučaju; tada GA šalje red na pravom pagehide.
   function track(name, params, options) {
     options = options || {};
     var cb = typeof options.callback === 'function' ? options.callback : null;
@@ -142,9 +146,15 @@
           observer.observe({ type: 'resource' });
         } catch (err) { observer = null; }
       }
-      // event_callback tjera GA4 da odmah pošalje red događaja; ako
-      // preglednik nema Resource Timing, služi kao zamjenski signal.
-      payload.event_callback = function () { if (!observer) finish(); };
+      payload.event_callback = function () {
+        if (done) return;
+        if (!observer) { finish(); return; } // bez Resource Timinga: staro ponašanje
+        try {
+          window.dispatchEvent(typeof PageTransitionEvent === 'function'
+            ? new PageTransitionEvent('pagehide', { persisted: false })
+            : new Event('pagehide'));
+        } catch (err) { /* timeout ispod i dalje vrijedi */ }
+      };
       payload.event_timeout = timeout;
       setTimeout(finish, timeout);
     }
