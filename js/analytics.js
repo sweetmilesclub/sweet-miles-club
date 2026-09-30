@@ -19,8 +19,12 @@
   'use strict';
 
   var MEASUREMENT_ID = 'G-CH0ETDKF4C';
-  var PRODUCTION_HOSTS = ['sweetmilesclub.com'];
-  var IS_PRODUCTION = PRODUCTION_HOSTS.indexOf(location.hostname) !== -1;
+  // debug_mode SAMO na poznatim testnim hostovima (Cloudflare Preview, lokalno).
+  // Svaki drugi host — sweetmilesclub.com, www, bilo koja buduća domena —
+  // tretira se kao produkcija i nikad ne dobiva debug_mode.
+  var host = location.hostname;
+  var IS_DEBUG_HOST = /\.pages\.dev$/.test(host) ||
+    host === 'localhost' || host === '127.0.0.1' || host === '[::1]';
   var DISABLE_FLAG = 'ga-disable-' + MEASUREMENT_ID;
 
   var initialised = false; // consent default + config poslani (samo nakon privole)
@@ -48,7 +52,7 @@
       gtag('consent', 'update', { analytics_storage: 'granted' });
       gtag('js', new Date());
       var config = { allow_google_signals: false, allow_ad_personalization_signals: false };
-      if (!IS_PRODUCTION) config.debug_mode = true; // Preview → DebugView
+      if (IS_DEBUG_HOST) config.debug_mode = true; // Preview → DebugView
       gtag('config', MEASUREMENT_ID, config);
       initialised = true;
     } else {
