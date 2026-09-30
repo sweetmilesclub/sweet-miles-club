@@ -96,9 +96,22 @@
     if (hasConsent()) grant(); else revoke();
   }
 
+  // Je li resource entry GA4 collect request koji nosi ovaj događaj:
+  // pojedinačni hit ima en=<name> u URL-u, a skupni (batch) hit nema en= u
+  // URL-u jer su događaji u tijelu POST-a.
+  function carriesEvent(url, name) {
+    if (url.indexOf('/g/collect') === -1) return false;
+    var m = url.match(/[?&]en=([^&]*)/);
+    return !m || m[1] === name;
+  }
+
   // Šalje događaj samo ako je analytics privola dana u ovom trenutku.
-  // options.callback se uvijek pozove točno jednom (i bez privole, odmah),
-  // najkasnije nakon options.timeout ms.
+  // options.callback se uvijek pozove točno jednom (i bez privole, odmah).
+  // S privolom: callback se poziva tek kad se collect request s ovim
+  // događajem stvarno ZAVRŠI (Resource Timing), a najkasnije nakon
+  // options.timeout ms — korisnik nikad ne čeka dulje od toga.
+  // (gtag event_callback sam po sebi nije dovoljan: okida se čim GA4
+  // pokrene slanje, pa preusmjeravanje može prekinuti request.)
   function track(name, params, options) {
     options = options || {};
     var cb = typeof options.callback === 'function' ? options.callback : null;
@@ -110,12 +123,30 @@
     var payload = {};
     for (var k in params) if (Object.prototype.hasOwnProperty.call(params, k)) payload[k] = params[k];
     if (cb) {
-      var done = false;
-      var finish = function () { if (!done) { done = true; cb(); } };
+      var done = false, observer = null;
       var timeout = options.timeout || 1000;
-      payload.event_callback = finish;
+      var finish = function () {
+        if (done) return;
+        done = true;
+        if (observer) observer.disconnect();
+        cb();
+      };
+      var sentAt = window.performance && performance.now ? performance.now() : 0;
+      if (window.PerformanceObserver) {
+        try {
+          observer = new PerformanceObserver(function (list) {
+            list.getEntries().forEach(function (e) {
+              if (e.startTime >= sentAt && carriesEvent(e.name, name)) finish();
+            });
+          });
+          observer.observe({ type: 'resource' });
+        } catch (err) { observer = null; }
+      }
+      // event_callback tjera GA4 da odmah pošalje red događaja; ako
+      // preglednik nema Resource Timing, služi kao zamjenski signal.
+      payload.event_callback = function () { if (!observer) finish(); };
       payload.event_timeout = timeout;
-      setTimeout(finish, timeout + 50);
+      setTimeout(finish, timeout);
     }
     gtag('event', name, payload);
     return true;
