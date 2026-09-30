@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kolačići — Sweet Miles Club</title>
 <meta name="description" content="Koje kolačiće Sweet Miles Club koristi, čemu služe i kako ih možeš isključiti.">
+<link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
@@ -90,6 +91,8 @@
   }
   .pravno a{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
   .pravno a:hover{border-bottom-color:var(--clay);}
+  .pravno .pravno-cc{color:var(--clay);border-bottom:1px solid transparent;transition:border-color .2s ease;}
+  .pravno .pravno-cc:hover{color:var(--clay);border-bottom-color:var(--clay);}
   .pravno .kontakt-blok{
     border-left:2px solid var(--eucalyptus);
     padding:4px 0 4px 24px;
@@ -158,7 +161,7 @@
 
     <div class="eyebrow">Pravno</div>
     <h1>Kolačići</h1>
-    <p class="azurirano">Zadnja izmjena: 29. rujna 2026.</p>
+    <p class="azurirano">Zadnja izmjena: 30. rujna 2026.</p>
 
     <p>Kolačići su male datoteke koje web-stranica sprema u tvoj preglednik. Neki su nužni da bi stranica uopće radila, a drugi služe mjerenju ili oglašavanju.</p>
 
@@ -166,11 +169,13 @@
 
     <h2>Kolačići koje postavlja sama stranica</h2>
 
-    <p>Nijedan. Sweet Miles Club nema korisničke račune, košaricu ni sustav komentara, pa nema ni vlastite kolačiće.</p>
+    <p>Nužan je samo jedan: <strong>cc_cookie</strong>. U njemu stranica pamti tvoj izbor u postavkama kolačića, odnosno koje si kategorije prihvatila ili odbila i kada, kako te ne bi pitala pri svakom posjetu. Nužan je za rad postavki kolačića, ne sadrži tvoje ime ni e-mail adresu i ne dijeli se s vanjskim servisima. Vrijedi šest mjeseci, nakon čega te stranica ponovno pita.</p>
 
-    <h2>Nužni kolačići pružatelja usluge</h2>
+    <p>Ako uključiš analitičke kolačiće, stranica postavlja i kolačiće Google Analyticsa, opisane niže.</p>
 
-    <p><strong>Cloudflare</strong>, na kojem je stranica smještena, može postaviti kolačić potreban za sigurnost i zaštitu od zlonamjernog prometa. Takav kolačić ne prati te i ne koristi se za marketing, a bez njega stranica ne bi mogla raditi sigurno.</p>
+    <h2>Pružatelj usluge smještaja</h2>
+
+    <p>Stranica je smještena na <strong>Cloudflareu</strong>. Pri običnom posjetu Cloudflare ne postavlja kolačiće.</p>
 
     <h2>Obrazac za preuzimanje workbooka</h2>
 
@@ -186,15 +191,38 @@
 
     <p>Fontovi koje stranica koristi poslužuju se sa same domene Sweet Miles Cluba. Pri njihovu učitavanju ne kontaktiraju se vanjski servisi poput Google Fontsa i ne postavljaju se kolačići.</p>
 
-    <h2>Analitika i oglašavanje</h2>
+    <h2>Analitika</h2>
 
-    <p>Trenutno <strong>nema</strong> alata za mjerenje posjećenosti, nema Google Analyticsa, nema Meta Pixela i nema oglasnih kolačića.</p>
+    <p>Za mjerenje posjećenosti koristim <strong>Google Analytics 4</strong>, uslugu tvrtke Google. Uključuje se <strong>samo ako prihvatiš analitičke kolačiće</strong>. Dok to ne učiniš, stranica ne učitava Googleov kod i ne šalje Googleu nikakve podatke.</p>
 
-    <p>Ako to jednom uvedem, prije toga ću postaviti traku za privole na kojoj ćeš moći jednako jednostavno prihvatiti ili odbiti takve kolačiće, i predomisliti se kasnije. Dok se to ne dogodi, ova će stranica biti dopunjena, a <a href="/privatnost">politika privatnosti</a> usklađena.</p>
+    <p>Kad je uključen, Google Analytics bilježi koje stranice otvaraš, odakle si došla na stranicu (na primjer s tražilice ili društvene mreže), koliko daleko čitaš stranicu, klikove na glavne pozive na radnju i odlazne poveznice prema drugim web-lokacijama te je li prijava za workbook uspjela. Tvoju e-mail adresu, ime i ono što upišeš u obrazac ne šaljem Googleu.</p>
 
-    <h2>Kako isključiti kolačiće</h2>
+    <p>Google Analytics postavlja ove kolačiće:</p>
 
-    <p>Kolačiće u svakom trenutku možeš blokirati ili obrisati u postavkama svog preglednika, obično pod stavkom „Privatnost i sigurnost".</p>
+    <ul>
+      <li><strong>_ga</strong> — razlikuje posjetitelje, vrijedi do 2 godine</li>
+      <li><strong>_ga_CH0ETDKF4C</strong> — pamti stanje posjeta, vrijedi do 2 godine</li>
+    </ul>
+
+    <p>Marketinške i oglasne alate trenutno ne koristim, pa nema ni oglasnih kolačića.</p>
+
+    <h2>Kategorije kolačića</h2>
+
+    <p>Pri prvom posjetu stranica te pita za privolu. Kolačiće dijelim u tri kategorije:</p>
+
+    <ul>
+      <li><strong>Nužni</strong> — uvijek uključeni. Omogućuju osnovne funkcije stranice i pamte tvoj izbor (kolačić cc_cookie).</li>
+      <li><strong>Analitički</strong> — za mjerenje posjećenosti: Google Analytics 4, opisan gore.</li>
+      <li><strong>Marketinški</strong> — za mjerenje i prikazivanje oglasa na drugim platformama. Trenutno se ne koristi nijedan marketinški alat.</li>
+    </ul>
+
+    <p>Analitičke i marketinške kategorije zadano su isključene i mogu se uključiti samo ako ih ti prihvatiš. Ako jednom uvedem marketinški alat, prije toga ću dopuniti ovu stranicu i <a href="/privatnost">politiku privatnosti</a>, a stranica će te ponovno pitati za privolu.</p>
+
+    <h2>Kako promijeniti svoj izbor</h2>
+
+    <p>Svoj izbor možeš promijeniti ili povući u bilo kojem trenutku preko poveznice <button type="button" class="footer-cc pravno-cc" data-cc="show-preferencesModal">Postavke kolačića</button>, koja se nalazi i u podnožju svake stranice. Promjena vrijedi odmah i za nju ne moraš brisati podatke preglednika. Ako povučeš privolu za analitičke kolačiće, stranica prestaje slati podatke Google Analyticsu i briše njegove kolačiće.</p>
+
+    <p>Kolačiće možeš i blokirati ili obrisati u postavkama svog preglednika, obično pod stavkom „Privatnost i sigurnost".</p>
 
     <p>Ako te nešto zanima, piši mi na <a href="mailto:hello@sweetmilesclub.com">hello@sweetmilesclub.com</a>.</p>
 
@@ -231,11 +259,14 @@
   </div>
   <div class="footer-legal">
     <span>© <span id="year"></span> Sweet Miles Club</span>
-    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a></span>
+    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a> · <button type="button" class="footer-cc" data-cc="show-preferencesModal">Postavke kolačića</button></span>
   </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/consent.js"></script>
 
 </body>
 </html>

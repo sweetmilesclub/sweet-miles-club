@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mojih 15 minuta — Osobni reset | Sweet Miles Club</title>
 <meta name="description" content="Besplatni workbook &bdquo;Mojih 15 minuta &mdash; Osobni reset&ldquo;. Četiri jednostavna koraka za mali prostor koji je samo tvoj.">
+<link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
@@ -497,7 +498,7 @@
       <div class="lp-hero-text">
         <div class="eyebrow">Besplatni workbook</div>
         <h1>Mojih 15 minuta<span class="proizvod">Osobni reset</span></h1>
-        <a href="#preuzmi" class="lp-cta">Preuzmi svoj primjerak →</a>
+        <a href="#preuzmi" class="lp-cta" data-cta="reset_hero" data-cta-location="lp_hero">Preuzmi svoj primjerak →</a>
         <p class="lp-tagline">Mali prostor za povratak sebi.</p>
       </div>
 
@@ -667,11 +668,14 @@
   </div>
   <div class="footer-legal">
     <span>© <span id="year"></span> Sweet Miles Club</span>
-    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a></span>
+    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a> · <button type="button" class="footer-cc" data-cc="show-preferencesModal">Postavke kolačića</button></span>
   </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/consent.js"></script>
 <script src="js/osobni-reset-form.js"></script>
 
 </body>

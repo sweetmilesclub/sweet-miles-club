@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politika privatnosti — Sweet Miles Club</title>
 <meta name="description" content="Koje podatke Sweet Miles Club prikuplja, zašto ih prikuplja, s kim ih dijeli i koja su tvoja prava.">
+<link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- SEO / Open Graph / favicon -->
@@ -158,7 +159,7 @@
 
     <div class="eyebrow">Pravno</div>
     <h1>Politika privatnosti</h1>
-    <p class="azurirano">Zadnja izmjena: 29. rujna 2026.</p>
+    <p class="azurirano">Zadnja izmjena: 30. rujna 2026.</p>
 
     <p>Sweet Miles Club je osobni blog o trčanju, balansu i vremenu za sebe. Ova stranica objašnjava koje podatke prikupljam preko web-sjedišta <a href="/">sweetmilesclub.com</a>, zašto ih prikupljam, s kim ih dijelim i što u svakom trenutku možeš tražiti od mene.</p>
 
@@ -184,6 +185,8 @@
 
     <p><strong>Tehničke podatke o posjetu</strong> — poslužitelj bilježi uobičajene podatke poput IP adrese, vrste preglednika i vremena zahtjeva. To se događa automatski pri svakom otvaranju bilo koje web-stranice i služi sigurnosti i ispravnom radu stranice.</p>
 
+    <p><strong>Podatke o korištenju stranice</strong> — samo ako u postavkama kolačića prihvatiš analitičke kolačiće. Tada Google Analytics 4 bilježi koje stranice otvaraš, odakle si došla, koliko daleko čitaš, klikove na glavne pozive na radnju i odlazne poveznice prema drugim web-lokacijama te je li prijava za workbook uspjela. Tvoju e-mail adresu, ime i sadržaj obrasca ne šaljem Googleu.</p>
+
     <p>Obrazac za workbook ne traži tvoje ime, adresu, dob, podatke o plaćanju ni bilo kakve posebne kategorije podataka.</p>
 
     <h2>Zašto ih prikupljam i na temelju čega</h2>
@@ -191,18 +194,20 @@
     <ul>
       <li>E-mail adresu obrađujem na temelju <strong>tvoje privole</strong>, koju daješ slanjem obrasca. Svrha je isporuka workbooka koji si zatražila.</li>
       <li>Prijavu na novosti obrađujem na temelju <strong>zasebne, dobrovoljne privole</strong> koju daješ označavanjem kvadratića.</li>
+      <li>Podatke o korištenju stranice (Google Analytics) obrađujem samo na temelju <strong>tvoje privole</strong>, koju daješ u postavkama kolačića. Svrha je razumjeti koji je sadržaj koristan i kako ljudi dolaze na stranicu.</li>
       <li>Tehničke podatke o posjetu obrađujem na temelju <strong>legitimnog interesa</strong> da stranica radi sigurno i bez smetnji.</li>
     </ul>
 
-    <p>Privolu možeš povući u svakom trenutku — na dnu svakog e-maila koji ti pošaljem stoji poveznica za odjavu, a možeš mi i jednostavno pisati. Povlačenje privole ne utječe na zakonitost obrade koja se dogodila prije povlačenja.</p>
+    <p>Privolu možeš povući u svakom trenutku — na dnu svakog e-maila koji ti pošaljem stoji poveznica za odjavu, a možeš mi i jednostavno pisati. Privolu za analitičke kolačiće povlačiš preko poveznice „Postavke kolačića” u podnožju svake stranice. Povlačenje privole ne utječe na zakonitost obrade koja se dogodila prije povlačenja.</p>
 
     <h2>Kome se tvoji podaci prosljeđuju</h2>
 
-    <p>Ne prodajem i ne ustupam podatke trećim stranama u marketinške svrhe. Za rad stranice i slanje e-maila koristim dva servisa koji podatke obrađuju u moje ime:</p>
+    <p>Ne prodajem i ne ustupam podatke trećim stranama u marketinške svrhe. Za rad stranice, slanje e-maila i mjerenje posjećenosti koristim ove servise, koji podatke obrađuju u moje ime:</p>
 
     <ul>
       <li><strong>MailerLite</strong> — alat kojim vodim popis pretplatnica i šaljem e-mailove. Tvoja e-mail adresa pohranjena je kod njih. Njihova pravila privatnosti dostupna su na <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener">mailerlite.com</a>.</li>
       <li><strong>Cloudflare</strong> — usluga na kojoj je web-sjedište smješteno i koja ga štiti od zlouporabe. Kroz nju prolaze tehnički podaci o posjetu. Njihova pravila dostupna su na <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com</a>.</li>
+      <li><strong>Google (Google Analytics 4)</strong> — mjerenje posjećenosti, samo ako prihvatiš analitičke kolačiće. Njihova pravila dostupna su na <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a>.</li>
     </ul>
 
     <p>Fontovi se poslužuju sa same domene Sweet Miles Cluba, pa se pri njihovu učitavanju ne kontaktiraju vanjski servisi poput Google Fontsa. Više o tome piše u <a href="/kolacici">obavijesti o kolačićima</a>.</p>
@@ -242,7 +247,7 @@
 
     <h2>Izmjene ove politike</h2>
 
-    <p>Ako se ono što koristim na stranici promijeni — primjerice ako jednom dodam alat za mjerenje posjećenosti — ovu ću politiku dopuniti i promijeniti datum na vrhu. Preporučujem da je povremeno pogledaš.</p>
+    <p>Ako se ono što koristim na stranici promijeni — primjerice ako jednom dodam marketinški ili oglasni alat — ovu ću politiku dopuniti i promijeniti datum na vrhu. Preporučujem da je povremeno pogledaš.</p>
 
   </div>
 </main>
@@ -277,11 +282,14 @@
   </div>
   <div class="footer-legal">
     <span>© <span id="year"></span> Sweet Miles Club</span>
-    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a></span>
+    <span><a href="/privatnost">Privatnost</a> · <a href="/kolacici">Kolačići</a> · <button type="button" class="footer-cc" data-cc="show-preferencesModal">Postavke kolačića</button></span>
   </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/consent.js"></script>
 
 </body>
 </html>

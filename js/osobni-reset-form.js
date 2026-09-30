@@ -68,6 +68,23 @@
     button.textContent = state ? MSG.sending : buttonLabel;
   }
 
+  // GA4 (samo uz analytics privolu, preko js/analytics.js). Nikad se ne šalje
+  // e-mail ni bilo koji identifikator osobe ili MailerLite forme.
+  function analyticsTrack(name, params, options) {
+    if (window.SMCAnalytics) return window.SMCAnalytics.track(name, params, options);
+    if (options && typeof options.callback === 'function') options.callback();
+    return false;
+  }
+
+  // form_start: jednom po učitavanju stranice, na prvi fokus u e-mail polje.
+  // Ako privola u tom trenutku nije dana, događaj se gubi (ne šalje se kasnije).
+  var formStarted = false;
+  email.addEventListener('focus', function () {
+    if (formStarted) return;
+    formStarted = true;
+    analyticsTrack('form_start', { form_location: 'osobni_reset_page' });
+  });
+
   email.addEventListener('input', function () {
     if (emailError.textContent) setEmailError('');
     if (message.textContent) setMessage('');
@@ -102,7 +119,8 @@
     var params = new URLSearchParams();
     params.append('fields[email]', value);
     params.append('groups[]', GROUP_DELIVERY);
-    if (newsletter.checked) params.append('groups[]', GROUP_NEWSLETTER);
+    var optedIn = newsletter.checked;
+    if (optedIn) params.append('groups[]', GROUP_NEWSLETTER);
     params.append('ml-submit', '1');
     params.append('anticsrf', 'true');
     params.append('ajax', '1');
@@ -135,7 +153,20 @@
         clearTimeout(timer);
         if (data && data.success === true) {
           // Gumb ostaje u stanju "Šaljem…" dok se /hvala učitava.
-          window.location.assign(SUCCESS_URL);
+          // Lead događaji tek ovdje: MailerLite je potvrdio success:true.
+          // Bez analytics privole preusmjeravanje je trenutno; s privolom
+          // čeka potvrdu slanja najviše ~1 s.
+          var redirected = false;
+          var goToThanks = function () {
+            if (redirected) return;
+            redirected = true;
+            window.location.assign(SUCCESS_URL);
+          };
+          if (optedIn) analyticsTrack('newsletter_opt_in', { lead_source: 'osobni_reset' });
+          analyticsTrack('generate_lead', {
+            lead_source: 'osobni_reset',
+            form_location: 'osobni_reset_page'
+          }, { callback: goToThanks, timeout: 1000 });
           return;
         }
         setSending(false);
