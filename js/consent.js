@@ -5,14 +5,15 @@
 //
 // Kategorije:
 //   necessary  — uvijek uključena, ne može se isključiti
-//   analytics  — za buduće mjerenje posjećenosti (trenutno nema aktivnih servisa)
-//   marketing  — za buduće oglasne alate (trenutno nema aktivnih servisa)
+//   analytics  — Google Analytics 4 (js/analytics.js), samo uz privolu
+//   marketing  — rezervirano za buduće oglasne alate (trenutno nema aktivnih servisa)
 //
-// Kad se uvede prvi analitički ili marketinški alat:
-//   1. njegova skripta dobiva type="text/plain" data-category="analytics|marketing",
-//      pa je biblioteka pokreće tek nakon privole;
-//   2. REVISION se povećava za 1, da svi posjetitelji ponovno odluče,
-//      jer raniji "Prihvati sve" nije uključivao taj alat.
+// GA4 se ne učitava preko data-category skripte nego preko js/analytics.js:
+// onConsent / onChange pozivaju SMCAnalytics.sync(), koji učitava ili gasi GA.
+//
+// REVISION: podiže se samo kad se promijeni opseg VEĆ OBJAVLJENE privole
+// (npr. novi alat u kategoriji koju su posjetitelji već prihvatili).
+// Prvi produkcijski CMP izlazi zajedno s GA4, pa ostaje 1.
 
 (function () {
   'use strict';
@@ -49,8 +50,19 @@
         enabled: true,
         readOnly: true
       },
-      analytics: {},
+      analytics: {
+        autoClear: {
+          cookies: [{ name: /^_ga/ }]
+        }
+      },
       marketing: {}
+    },
+
+    onConsent: function () {
+      if (window.SMCAnalytics) window.SMCAnalytics.sync();
+    },
+    onChange: function () {
+      if (window.SMCAnalytics) window.SMCAnalytics.sync();
     },
 
     language: {
@@ -61,14 +73,15 @@
             title: 'Kolačići na Sweet Miles Clubu',
             description:
               'Koristim samo ono što je nužno da stranica radi i da zapamti tvoj izbor. ' +
-              'Analitičke i marketinške kolačiće koristila bih samo uz tvoju privolu, a trenutno ih nema. ' +
+              'Uz tvoju privolu koristim i Google Analytics, kako bih vidjela koji je sadržaj koristan. ' +
+              'Marketinške alate trenutno ne koristim. ' +
               'Izbor možeš promijeniti bilo kada preko poveznice „Postavke kolačića” u podnožju stranice.',
             acceptAllBtn: 'Prihvati sve',
             acceptNecessaryBtn: 'Odbij sve',
             showPreferencesBtn: 'Prilagodi',
             footer:
-              '<a href="privatnost.html">Privatnost</a>' +
-              '<a href="kolacici.html">Kolačići</a>'
+              '<a href="/privatnost">Privatnost</a>' +
+              '<a href="/kolacici">Kolačići</a>'
           },
           preferencesModal: {
             title: 'Postavke kolačića',
@@ -95,8 +108,9 @@
               {
                 title: 'Analitički',
                 description:
-                  'Služili bi za mjerenje posjećenosti, kako bih znala koji je sadržaj koristan. ' +
-                  'Trenutno se ne koristi nijedan analitički alat.',
+                  'Google Analytics 4 bilježi koje stranice čitaš, odakle dolaziš i koje poveznice koristiš, ' +
+                  'kako bih znala koji je sadržaj koristan. Postavlja kolačiće _ga i _ga_*. ' +
+                  'Ne šaljem mu tvoju e-mail adresu ni ime.',
                 linkedCategory: 'analytics'
               },
               {
@@ -110,7 +124,7 @@
                 title: 'Više informacija',
                 description:
                   'Detalje o kolačićima i obradi podataka pronaći ćeš na stranicama ' +
-                  '<a href="kolacici.html">Kolačići</a> i <a href="privatnost.html">Privatnost</a>. ' +
+                  '<a href="/kolacici">Kolačići</a> i <a href="/privatnost">Privatnost</a>. ' +
                   'Za pitanja piši na <a href="mailto:hello@sweetmilesclub.com">hello@sweetmilesclub.com</a>.'
               }
             ]
