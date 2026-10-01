@@ -1,0 +1,6 @@
+# Branded social links (302: odredište i UTM-ovi mogu se kasnije mijenjati
+# bez da ih preglednici trajno zapamte).
+/ig   /osobni-reset?utm_source=instagram&utm_medium=organic_social&utm_campaign=profile  302
+/ig/  /osobni-reset?utm_source=instagram&utm_medium=organic_social&utm_campaign=profile  302
+/fb   /osobni-reset?utm_source=facebook&utm_medium=organic_social&utm_campaign=profile   302
+/fb/  /osobni-reset?utm_source=facebook&utm_medium=organic_social&utm_campaign=profile   302
