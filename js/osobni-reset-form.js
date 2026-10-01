@@ -76,6 +76,14 @@
     return false;
   }
 
+  // Meta Pixel (samo uz marketing privolu, preko js/meta-analytics.js).
+  // Šalje se samo standardni događaj, bez ikakvih podataka iz obrasca.
+  function metaTrack(name, options) {
+    if (window.SMCMeta) return window.SMCMeta.track(name, options);
+    if (options && typeof options.callback === 'function') options.callback();
+    return false;
+  }
+
   // form_start: jednom po učitavanju stranice, na prvi fokus u e-mail polje.
   // Ako privola u tom trenutku nije dana, događaj se gubi (ne šalje se kasnije).
   var formStarted = false;
@@ -162,11 +170,16 @@
             redirected = true;
             window.location.assign(SUCCESS_URL);
           };
+          // Preusmjeravanje tek kad su GA4 i Meta gotovi (svaki najviše 1 s;
+          // bez odgovarajuće privole svaki javlja "gotovo" odmah).
+          var pending = 2;
+          var oneDone = function () { if (--pending === 0) goToThanks(); };
+          metaTrack('Lead', { callback: oneDone, timeout: 1000 });
           if (optedIn) analyticsTrack('newsletter_opt_in', { lead_source: 'osobni_reset' });
           analyticsTrack('generate_lead', {
             lead_source: 'osobni_reset',
             form_location: 'osobni_reset_page'
-          }, { callback: goToThanks, timeout: 1000 });
+          }, { callback: oneDone, timeout: 1000 });
           return;
         }
         setSending(false);
