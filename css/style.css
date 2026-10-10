@@ -244,6 +244,21 @@ footer{background:var(--ivory);border-top:1px solid rgba(63,59,54,0.1);padding:2
   outline-offset:2px;
 }
 
+/* Mobitel: kompaktniji banner. "Prihvati sve" i "Odbij sve" stoje u istom
+   redu i jednake su veličine; "Prilagodi" je tanji red ispod.
+   !important je potreban jer ga biblioteka koristi u istom breakpointu. */
+@media screen and (max-width:640px){
+  #cc-main .cm__texts{padding-top:.85rem;}
+  #cc-main .cm__title+.cm__desc{margin-top:.5em;}
+  #cc-main .cm__desc{padding-bottom:.75em;}
+  #cc-main .cm__btns{padding-top:.75rem;padding-bottom:.75rem;}
+  #cc-main .cm__btn-group:first-child{flex-direction:row!important;gap:.375rem;}
+  #cc-main .cm__btn-group:first-child .cm__btn{flex:1 1 0!important;}
+  #cc-main .cm__btn-group:first-child .cm__btn+.cm__btn{margin:0!important;}
+  #cc-main .cm__btn{min-height:40px;}
+  #cc-main .cm__btn--secondary{min-height:34px;}
+}
+
 /* Trajna poveznica "Postavke kolačića" u podnožju — izgleda kao ostale poveznice. */
 .footer-cc{
   font:inherit;
