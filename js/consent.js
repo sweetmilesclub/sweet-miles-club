@@ -80,10 +80,9 @@
           consentModal: {
             title: 'Kolačići na Sweet Miles Clubu',
             description:
-              'Koristim samo ono što je nužno da stranica radi i da zapamti tvoj izbor. ' +
-              'Uz tvoju privolu koristim i Google Analytics, kako bih vidjela koji je sadržaj koristan. ' +
-              'Uz posebnu privolu koristim i Meta Pixel, za mjerenje učinka oglasa na Facebooku i Instagramu. ' +
-              'Izbor možeš promijeniti bilo kada preko poveznice „Postavke kolačića” u podnožju stranice.',
+              'Nužni kolačići omogućuju rad stranice. ' +
+              'Uz tvoju privolu koristim Google Analytics i Meta Pixel za mjerenje posjeta i oglasa. ' +
+              'Izbor možeš promijeniti bilo kada u podnožju stranice.',
             acceptAllBtn: 'Prihvati sve',
             acceptNecessaryBtn: 'Odbij sve',
             showPreferencesBtn: 'Prilagodi',
