@@ -9,8 +9,10 @@
 <link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
 <link rel="stylesheet" href="css/style.css">
 <!-- Hero fotografija je LCP element (CSS pozadina): preload s visokim prioritetom
-     da je preglednik počne skidati odmah, a ne tek nakon CSS-a. -->
-<link rel="preload" as="image" href="images/smc-hero-zalazak-kava.jpg" fetchpriority="high">
+     da je preglednik počne skidati odmah, a ne tek nakon CSS-a. Mobitel (do 440px)
+     dobiva izrez samo vidljivog dijela fotografije (iste piksele, upola manja datoteka). -->
+<link rel="preload" as="image" href="images/smc-hero-zalazak-kava-mobile.jpg" fetchpriority="high" media="(max-width:440px)">
+<link rel="preload" as="image" href="images/smc-hero-zalazak-kava.jpg" fetchpriority="high" media="(min-width:441px)">
 
 <!-- SEO / Open Graph / favicon -->
 <link rel="canonical" href="https://sweetmilesclub.com/">
@@ -495,6 +497,11 @@
     .reset-inner{padding:0 24px;}
     .reset h2{font-size:34px;}
     .proces{grid-template-columns:1fr;gap:24px;}
+  }
+  /* mobitel: izrez hero fotografije (images/smc-hero-zalazak-kava-mobile.jpg = x 650–1417 originala).
+     Na ekranima do 440px vidi se samo taj dio, pa je kadar isti kao prije. */
+  @media (max-width:440px){
+    .hero{background-image:url('images/smc-hero-zalazak-kava-mobile.jpg');background-position:78% center;}
   }
   @media (max-width:600px){
     header nav{display:none;}
