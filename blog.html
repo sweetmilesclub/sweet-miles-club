@@ -127,8 +127,9 @@
   .latest-section{
     max-width:1320px;
     margin:0 auto;
-    padding:20px 40px 110px;
+    padding:64px 40px 110px;
   }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .latest-section h2.section-title{
     font-family:'Playfair Display',serif;
     font-weight:500;
@@ -183,7 +184,7 @@
     .nav-toggle{display:flex;}
     .header-inner{padding:18px 22px;}
     .article-grid{grid-template-columns:1fr;}
-    .latest-section{padding:10px 22px 80px;}
+    .latest-section{padding:36px 22px 80px;}
   }
 </style>
 </head>
@@ -232,34 +233,34 @@
 
 <main>
 
-  <!-- ================= HERO: intro + featured article ================= -->
-  <section class="blog-hero">
-    <div class="hero-intro">
-      <div class="eyebrow">SMC Blog</div>
-      <h1>Blog</h1>
-      <p class="lead">Trčanje, vrijeme za sebe, svakodnevni život i put do 21,1 km — priče iz stvarnih dana, bez pritiska da nešto naučiš ili promijeniš odmah.</p>
-      <a href="#najnoviji-clanci" class="hero-cta" data-cta="blog_hero" data-cta-location="hero">Započni čitati →</a>
-    </div>
-
-    <!-- reusable: featured article block -->
-    <a href="/clanak-imala-sam-plan" class="featured-article">
-      <div class="thumb" style="background-image:url('images/smc-ism-hero-kava-medalja.jpg');background-size:cover;background-position:center 42%;">
-        <span class="article-tag">Put do 21,1 km</span>
-      </div>
-      <h2>Imala sam plan</h2>
-      <p>Tri mjeseca plana, a dan prije utrke otkrijem da nisam prijavljena. Iskreno o tome kako sam ipak istrčala 21,1 km.</p>
-      <span class="article-link">Pročitaj članak →</span>
-    </a>
-  </section>
-
   <!-- ================= LATEST ARTICLES ================= -->
   <section class="latest-section" id="najnoviji-clanci">
-    <h2 class="section-title">Najnoviji članci</h2>
+    <h1 class="sr-only">Blog — Sweet Miles Club</h1>
 
     <div class="article-grid">
 
       <!-- reusable: article card component -->
-      <a href="/clanak-prvih-5-km-nakon-pauze" class="article-card">
+      <a href="/clanak-sto-nakon-prvog-polumaratona" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
+        <div class="thumb" style="background-image:url('images/smc-ism-start.jpg');background-size:cover;background-position:center 62%;">
+          <span class="article-tag">Put do 21,1 km</span>
+        </div>
+        <div class="article-meta">27. listopada 2026. · 2 min čitanja</div>
+        <h3>Tjedan dana poslije: što nakon prvog polumaratona</h3>
+        <p>Tjedan dana nakon prvog polumaratona: kako se oporavljalo tijelo, prvih 5 km poslije i zašto već razmišljam o sljedećem izazovu.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+      <a href="/clanak-imala-sam-plan" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
+        <div class="thumb" style="background-image:url('images/smc-ism-hero-kava-medalja.jpg');background-size:cover;background-position:center 42%;">
+          <span class="article-tag">Put do 21,1 km</span>
+        </div>
+        <div class="article-meta">10. listopada 2026. · 5 min čitanja</div>
+        <h3>Imala sam plan</h3>
+        <p>Tri mjeseca plana, a dan prije utrke otkrijem da nisam prijavljena. Iskreno o tome kako sam ipak istrčala 21,1 km.</p>
+        <span class="article-link">Pročitaj više →</span>
+      </a>
+
+      <a href="/clanak-prvih-5-km-nakon-pauze" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
         <div class="thumb" style="background-image:url('images/smc-kartica-prvih-5km.jpg');background-size:cover;background-position:center;">
           <span class="article-tag">Trčanje</span>
         </div>
@@ -269,7 +270,7 @@
         <span class="article-link">Pročitaj više →</span>
       </a>
 
-      <a href="/clanak-kava-koja-mi-vraca-dan" class="article-card">
+      <a href="/clanak-kava-koja-mi-vraca-dan" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
         <div class="thumb" style="background-image:url('images/smc-kartica-kava.jpg');background-size:cover;background-position:center;">
           <span class="article-tag">Mojih 15 minuta</span>
         </div>
@@ -279,7 +280,7 @@
         <span class="article-link">Pročitaj više →</span>
       </a>
 
-      <a href="/clanak-dan-kad-sam-otkazala-sve" class="article-card">
+      <a href="/clanak-dan-kad-sam-otkazala-sve" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
         <div class="thumb" style="background-image:url('images/smc-kartica-otkazala-sve.jpg');background-size:cover;background-position:center;">
           <span class="article-tag">Život</span>
         </div>
@@ -289,7 +290,7 @@
         <span class="article-link">Pročitaj više →</span>
       </a>
 
-      <a href="/clanak-tjedan-3-motivacija" class="article-card">
+      <a href="/clanak-tjedan-3-motivacija" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
         <div class="thumb" style="background-image:url('images/smc-kartica-tjedan-3.jpg');background-size:cover;background-position:center;">
           <span class="article-tag">Put do 21,1 km</span>
         </div>
@@ -299,7 +300,7 @@
         <span class="article-link">Pročitaj više →</span>
       </a>
 
-      <a href="/clanak-zasto-sam-prijavila-polumaraton" class="article-card">
+      <a href="/clanak-zasto-sam-prijavila-polumaraton" class="article-card" data-cta="blog_card" data-cta-location="blog_list">
         <div class="thumb" style="background-image:url('images/smc-blog-polumaraton.jpg');background-size:cover;background-position:center 38%;">
           <span class="article-tag">Put do 21,1 km</span>
         </div>
